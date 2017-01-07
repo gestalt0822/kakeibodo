@@ -9,6 +9,7 @@
     <td><%= booking.amount %>円</td>
     <td><%= booking.detail %></td>
     <td><%= booking.date.strftime("%m月%d日") %></td>
+    <td><%= link_to '編集', edit_booking_path(booking) %></td>
   </tr>
   <% end %>
 </table>
