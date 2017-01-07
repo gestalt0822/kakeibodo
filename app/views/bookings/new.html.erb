@@ -1,0 +1,7 @@
+<%= form_for(@booking) do |f| %>
+  <%= f.label :金額 %>
+  <%= f.text_field :amount %>
+  <%= f.label :詳細 %>
+  <%= f.text_field :detail %>
+  <%= f.submit '投稿' %>
+<% end %>
