@@ -9,6 +9,7 @@ class BookingsController < ApplicationController
 
   def new
    @booking = Booking.new
+   @categories = Category.all
   end
 
   def create

@@ -1,1 +1,11 @@
 <%= render partial: 'form' %>
+
+<h2>項目名一覧</h2>
+  <% @categories.each do |category| %>
+    <ul>
+      <li><%= category.name %>
+        <%= link_to '削除', category_path(category), method: :delete %>
+        <%= link_to '修正', edit_category_path(category) %>
+      </li>
+    </ul>
+ <% end %>
