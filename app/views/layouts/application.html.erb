@@ -11,6 +11,8 @@
 <ul>
   <li><%= link_to '一覧', bookings_path %></li>
   <li><%= link_to '新規入力', new_booking_path %></li>
+  <li><%= link_to '項目一覧', categories_path %></li>
+  <li><%= link_to '新規項目', new_category_path %></li>
   <% if user_signed_in? %>
     <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
   <% else %>
