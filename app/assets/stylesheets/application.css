@@ -68,6 +68,13 @@ body{
   border: 2px solid #ddd;
 }
 
+/*戻るボタンなどの文字リンク*/
+
+.links{
+  margin: 10px 0px 0px 0px;
+  text-align: center;
+}
+
  footer{
    width: 100%;
    background-color: #0c3;
