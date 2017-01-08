@@ -1,7 +1,3 @@
 <h2>新しい項目を追加</h2>
 
-<%= form_for(@category) do |f| %>
-  <%= f.label :項目名 %>
-  <%= f.text_field :name %>
-  <%= f.submit '追加' %>
-<% end %>
+<%= render partial: 'form' %>

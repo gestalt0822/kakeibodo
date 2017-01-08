@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :set_category, only: [:edit, :update, :destroy]
   def index
     @categories = Category.all
   end
@@ -8,12 +9,29 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    @category =Category.create(category_params)
+    @category = Category.create(categories_params)
+    redirect_to categories_path
+  end
+
+  def destroy
+    @category.destroy
+    redirect_to categories_path
+  end
+
+  def edit
+  end
+
+  def update
+    @category.update(categories_params)
     redirect_to categories_path
   end
 
   private
-  def category_params
-    params.require(:category).permit(:name)
-  end
+    def categories_params
+      params.require(:category).permit(:name)
+    end
+
+    def set_category
+      @category = Category.find(params[:id])
+    end
 end
