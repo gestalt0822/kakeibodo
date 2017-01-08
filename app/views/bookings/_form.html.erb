@@ -1,7 +1,7 @@
 <%= form_for(@booking) do |f| %>
   <%= f.label :金額 %>
-  <%= f.text_field :amount %>
+  <%= f.text_field :amount, autofocus: true , class: "form-control" %>
   <%= f.label :詳細 %>
-  <%= f.text_field :detail %>
-  <%= f.submit '投稿' %>
+  <%= f.text_field :detail, autofocus: true , class: "form-control" %>
+  <%= f.submit '投稿', class: 'btn btn-default btn-xs btn-info' %>
 <% end %>

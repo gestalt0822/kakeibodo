@@ -3,6 +3,7 @@ class BookingsController < ApplicationController
   before_action :set_booking, only: [:edit, :update, :destroy]
 
   def index
+    @booking = Booking.new
     @bookings = Booking.all
   end
   #http://www.namaraii.com/rubytips/datetime/#section-7

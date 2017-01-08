@@ -8,20 +8,36 @@
 </head>
 <body>
 
-<ul>
-  <li><%= link_to '一覧', bookings_path %></li>
-  <li><%= link_to '新規入力', new_booking_path %></li>
-  <li><%= link_to '項目一覧', categories_path %></li>
-  <li><%= link_to '新規項目', new_category_path %></li>
-  <% if user_signed_in? %>
-    <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-  <% else %>
-    <li><%= link_to 'ログイン', new_user_session_path %></li>
-    <li><%= link_to '新規登録', new_user_registration_path %></li>
-  <% end %>
-</ul>
+<header>
+  <div class="dropdown">
+    <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+    Dropdown
+      <span class="caret"></span>
+    </button>
+    <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+      <li><%= link_to '一覧', bookings_path %></li>
+      <li><%= link_to '新規入力', new_booking_path %></li>
+      <li><%= link_to '項目一覧', categories_path %></li>
+      <li><%= link_to '新規項目', new_category_path %></li>
+      <li role="separator" class="divider"></li>
+      <% if user_signed_in? %>
+        <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+      <% else %>
+        <li><%= link_to 'ログイン', new_user_session_path %></li>
+        <li><%= link_to '新規登録', new_user_registration_path %></li>
+      <% end %>
+    </ul>
+  </div>
+</header>
 
-<%= yield %>
+<div id="contents" class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+  <%= yield %>
+</div>
+
+<footer>
+  <p>運営： 株式会社AokiEngineering<br />
+  © 2016-2017 Copyright AokiEngineering Corp</p>
+</footer>
 
 </body>
 </html>

@@ -1,11 +1,18 @@
-<%= render partial: 'form' %>
-
-<h2>項目名一覧</h2>
-  <% @categories.each do |category| %>
-    <ul>
-      <li><%= category.name %>
-        <%= link_to '削除', category_path(category), method: :delete %>
-        <%= link_to '修正', edit_category_path(category) %>
-      </li>
-    </ul>
- <% end %>
+<div class="main_contents">
+  <%= render partial: 'form' %>
+  <h2>項目名一覧</h2>
+  <table class="table table-bordered design-table">
+    <tr class="success">
+      <th>カテゴリー名</th><th></th>
+    </tr>
+    <% @categories.each do |category| %>
+      <tr>
+        <td><%= category.name %></td>
+        <td>
+          <%= link_to '削除', category_path(category), method: :delete, class: 'btn btn-default btn-xs btn-primary' %>
+          <%= link_to '修正', edit_category_path(category) , class: 'btn btn-default btn-xs btn-danger' %>
+        </td>
+      <tr>
+    <% end %>
+   </table>
+ </div>
