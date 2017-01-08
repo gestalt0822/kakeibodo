@@ -11,8 +11,8 @@
         <td><%= booking.detail %></td>
         <td><%= booking.date.strftime("%m月%d日") %></td>
         <td>
-          <%= link_to '編集', edit_booking_path(booking) %>
-          <%= link_to '削除', booking_path(booking), method: :delete %>
+          <%= link_to '編集', edit_booking_path(booking), class: 'btn btn-default btn-xs' %>
+          <%= link_to '削除', booking_path(booking), method: :delete, class: 'btn btn-default btn-xs'  %>
         </td>
       </tr>
     <% end %>

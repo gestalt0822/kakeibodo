@@ -46,3 +46,4 @@ gem 'rails_12factor', group: :production
 gem 'pry-rails'
 gem 'better_errors'
 gem 'devise'
+gem 'twitter-bootstrap-rails'
