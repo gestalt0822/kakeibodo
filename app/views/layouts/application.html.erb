@@ -15,12 +15,12 @@
       <span class="caret"></span>
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
-      <li><%= link_to '一覧', bookings_path %></li>
-      <li><%= link_to '新規入力', new_booking_path %></li>
-      <li><%= link_to '項目一覧', categories_path %></li>
-      <li><%= link_to '新規項目', new_category_path %></li>
-      <li role="separator" class="divider"></li>
       <% if user_signed_in? %>
+        <li><%= link_to '一覧', bookings_path %></li>
+        <li><%= link_to '新規入力', new_booking_path %></li>
+        <li><%= link_to '項目一覧', categories_path %></li>
+        <li><%= link_to '新規項目', new_category_path %></li>
+        <li role="separator" class="divider"></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
         <li><%= link_to 'マイページ', edit_user_registration_path %></li>
       <% else %>

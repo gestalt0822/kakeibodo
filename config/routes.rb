@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
+  root 'bookings#index'
   devise_for :users
   resources :bookings, except: :show
-  root 'bookings#index'
   resources :categories, only:[:index, :new ,:create, :destroy, :edit, :update]
 end
