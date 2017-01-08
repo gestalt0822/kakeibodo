@@ -25,6 +25,12 @@ class BookingsController < ApplicationController
    redirect_to bookings_path
   end
 
+  def destroy
+    @booking = Booking.find(params[:id])
+    @booking.destroy
+    redirect_to bookings_path
+  end
+
   private
     def bookings_params
       params.require(:booking).permit(:amount, :detail ,:date)
