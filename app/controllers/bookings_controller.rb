@@ -14,6 +14,7 @@ class BookingsController < ApplicationController
   def create
     @booking = Booking.new(bookings_params)
     @booking.date = Date.today
+    @booking.user_id = current_user.id
     @booking.save
     redirect_to bookings_path
   end
