@@ -46,12 +46,20 @@ body{
    text-align: center;
  }
 
+ #contents{
+   padding-bottom: 80px;
+ }
+
 .main_contents{
   background-color: #fff;
   margin: 20px 0px;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 4px;
+}
+
+.btn-margin{
+  margin-bottom: 30px;
 }
 
 /* bootstrapのテーブルデザインに追加*/

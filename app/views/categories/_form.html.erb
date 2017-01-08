@@ -1,5 +1,7 @@
 <%= form_for(@category) do |f| %>
-  <%= f.label :項目名 %>
-  <%= f.text_field :name, autofocus: true , class: "form-control" %>
-  <%= f.submit '追加', class: 'btn btn-default btn-xs btn-info' %>
+  <div class="form-group">
+    <%= f.label :項目名 %>
+    <%= f.text_field :name, autofocus: true , class: "form-control" %>
+  </div>
+  <%= f.submit '投稿', class: 'btn btn-info btn-block btn-margin' %>
 <% end %>
