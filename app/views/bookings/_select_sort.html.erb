@@ -1,0 +1,3 @@
+<div class="form-group">
+  <%= collection_select(:sort, :sort_id, Sort.where(category_id: sort_id), :id, :name) %>
+</div>

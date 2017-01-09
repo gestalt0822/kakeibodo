@@ -36,6 +36,10 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def get_sorts
+    render partial: 'select_sort', locals: {sort_id: params{:sort_id}} 
+  end
+
   private
     def bookings_params
       params.require(:booking).permit(:amount, :detail ,:date, :category_id, :sort_id)
