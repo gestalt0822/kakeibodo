@@ -3,4 +3,5 @@ Rails.application.routes.draw do
   devise_for :users
   resources :bookings, except: :show
   resources :categories, only:[:index, :new ,:create, :destroy, :edit, :update]
+  resources :sorts, except: :show
 end

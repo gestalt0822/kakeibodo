@@ -1,0 +1,7 @@
+<%= form_for(@sort) do |f| %>
+ <div class="form-group">
+   <%= f.label :細目名 %>
+   <%= f.text_field :name, autofocus: true , class: "form-control"  %>
+ </div>
+ <%= f.submit '投稿', class: 'btn btn-info btn-block btn-margin' %>
+<% end %>
