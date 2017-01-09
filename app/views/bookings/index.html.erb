@@ -12,13 +12,14 @@
 
   <table class="table table-bordered design-table">
     <tr class="success">
-      <th>金額</th><th>項目</th><th>詳細</th><th>日時</th><th></th>
+      <th>金額</th><th>項目</th><th>詳細</th><th>細目</th><th>日時</th><th></th>
     </tr>
     <% @bookings.each do |booking| %>
       <% if current_user.id == booking.user.id %>
         <tr>
           <td><%= booking.amount %>円</td>
           <td><%= booking.category.name %></td>
+          <td><%= booking.sort.name %></td>
           <td><%= booking.detail %></td>
           <td><%= booking.date.strftime("%m月%d日") %></td>
           <td>
