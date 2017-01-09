@@ -14,6 +14,6 @@ class SortsController < ApplicationController
 
   private
    def sorts_params
-     params.require(:sort).permit(:name)
+     params.require(:sort).permit(:name, :category_id)
    end
 end
