@@ -1,9 +1,13 @@
 <div class="main_contents">
   <h2>細目一覧</h2>
   <table class="table table-bordered design-table">
-    <tr class="success"><th>細目名</th><th>親カテゴリー</th></tr>
+    <tr class="success"><th>細目名</th><th>親カテゴリー</th><th></th></tr>
     <% @sorts.each do |sort| %>
-      <tr><td><%= sort.name %></td><td><%= sort.category.name %></td><tr>
+      <tr>
+        <td><%= sort.name %></td>
+        <td><%= sort.category.name %></td>
+        <td><%= link_to '変更', edit_sort_path(sort), class: 'btn btn-default btn-xs btn-danger' %></td>
+        <tr>
     <% end %>
   </table>
 </div>
