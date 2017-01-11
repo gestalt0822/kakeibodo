@@ -1,2 +1,15 @@
-<h1>Challenges#index</h1>
-<p>Find me in app/views/challenges/index.html.erb</p>
+<div class="main_contents">
+  <h2>チャレンジ一覧</h2>
+  <table class="table table-bordered design-table">
+    <tr class="success">
+      <th>開始日</th><th>目標額</th><th>最終日</th>
+    </tr>
+    <tr>
+      <% @challenges.each do |challenge| %>
+        <td><%= challenge.start.strftime("%m月%d日")%></td>
+        <td><%= challenge.target %>円</td>
+        <td><%= challenge.deadline.strftime("%m月%d日")%></td>
+      <% end %>
+    </tr>
+  </table>
+</div>
