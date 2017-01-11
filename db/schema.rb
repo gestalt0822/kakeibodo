@@ -11,20 +11,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170111105549) do
+ActiveRecord::Schema.define(version: 20170111113904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookandchallenges", force: :cascade do |t|
+    t.integer  "challenge_id"
+    t.integer  "booking_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.string   "detail"
     t.integer  "amount"
     t.datetime "date"
     t.integer  "user_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
     t.integer  "category_id"
     t.integer  "sort_id"
+    t.boolean  "challenging", default: false
   end
 
   create_table "categories", force: :cascade do |t|
