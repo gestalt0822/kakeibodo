@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
 # challengesテーブルのtotal_amountカラムにamountカラムの金額を追加(中間テーブルを経由)
 # 特定のカラムの特定の値(challenge_idが同じ値)をすべて配列などで取得するメソッドが欲しい
 # さらに取得した値を合計したい
+# Bookandchallenge.where(challenge_id:get_challenge.last.id)
 # これも一度コントローラーに記述して動くのを確認してからモデルに移す。
 
   def create
@@ -28,8 +29,16 @@ class BookingsController < ApplicationController
       get_challenge = Challenge.where(user_id:current_user.id,status:1)
       get_booking = Booking.where(user_id:current_user.id,).last
       Bookandchallenge.create(challenge_id:get_challenge.last.id ,booking_id:get_booking.id)
+      challengeId = current_user.challenges.find_by(status:1).id
+      challengings = Bookandchallenge.where(challenge_id: challengeId )
+      amounts = 0
+      challengings.each do |challenging |
+        amounts += challenging.booking.amount
+      end
+      latest_challenge = current_user.challenges.find_by(status:1)
+      latest_challenge.update(total_amount: amounts)
     end
-    redirect_to bookings_path
+      redirect_to bookings_path
   end
 
   def edit
