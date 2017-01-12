@@ -3,12 +3,13 @@
   <h3>現在のチャレンジ</h3>
   <table class="table table-bordered design-table">
     <tr class="success">
-      <th>チャレンジャー</th><th>開始日</th><th>目標額</th><th>最終日</th>
+      <th>チャレンジャー</th><th>開始日</th><th>使用額</th><th>目標額</th><th>最終日</th>
     </tr>
     <tr>
       <% @challenges.each do |challenge| %>
         <td><%= challenge.user.name %></td>
         <td><%= challenge.start.strftime("%m月%d日")%></td>
+        <td><%= challenge.total_amount %>円</td>
         <td><%= challenge.target %>円</td>
         <td><%= challenge.deadline.strftime("%m月%d日")%></td>
       <% end %>

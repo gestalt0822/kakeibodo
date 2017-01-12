@@ -13,10 +13,16 @@ class BookingsController < ApplicationController
    @categories = Category.all
   end
 
+# booking.rbに記載したnow_challenging?メソッドの結果で処理を分ける
+#　もしtrueならchallengesテーブルのtotal_amountカラムにamountカラムの金額を追加
+#booking_idとchallenge_idをどう取得？
+#challenge_idはcurrent_userでstatusが1のレコードを取得？
   def create
     @booking = Booking.new(bookings_params)
     @booking.user_id = current_user.id
     @booking.save
+
+    @bookandchallenge =Bookandchallenge.create(challenge_id: ,booking_id:)
     redirect_to bookings_path
   end
 
