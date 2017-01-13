@@ -37,11 +37,23 @@ class ChallengesController < ApplicationController
     redirect_to challenges_path
   end
 
+  #得点を計算するメッソドを実装
+  #pointsテーブルを作成
+  #期間・金額をpointsテーブルを元に得点を集計
+  #集計結果をusersテーブルのpointsカラムに追加
+  #マイページにpointsを集計
+  #過去のチャレンジ一覧にポイントも記載
+
   def finish
     @challenge = Challenge.find(params[:id])
     @challenge.update(status:2)
     if @challenge.total_amount <= @challenge.target
-       @challenge.update(achieve: true)
+      dif_amount = Point.find_by(name: "over_target").each_point
+      this_dif_amount = (@challenge.target - @challenge.total_amount) * dif_amount
+      dif_duration = Point.find_by(name: "duration").each_point
+      this_dif_duration = (@challenge.deadline - @challenge.start).to_i * dif_duration
+      total_score = this_dif_amount + this_dif_duration
+       @challenge.update(achieve: true, score:total_score)
     else
        @challenge.update(achieve: false)
     end

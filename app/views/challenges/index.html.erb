@@ -32,7 +32,7 @@
   <!--status:1,2のレコードのみ-->
   <table class="table table-bordered design-table">
     <tr class="active">
-      <th>チャレンジャー</th><th>開始日</th><th>使用額</th><th>目標額</th><th>最終日</th><th>結果</th>
+      <th>チャレンジャー</th><th>開始日</th><th>使用額</th><th>目標額</th><th>最終日</th><th>結果</th><th>得点</th>
     </tr>
     <% @challenges.each do |challenge| %>
       <% if current_user.id == challenge.user.id && challenge.status != 1%>
@@ -43,6 +43,7 @@
           <td><%= challenge.target %>円</td>
           <td><%= challenge.deadline.strftime("%m月%d日")%></td>
           <td><%= challenge.achieve %></td>
+          <td><%= challenge.score %></td>
         </tr>
       <% end %>
     <% end %>
