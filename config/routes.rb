@@ -4,5 +4,9 @@ Rails.application.routes.draw do
   resources :bookings, except: :show
   resources :categories, only:[:index, :new ,:create, :destroy, :edit, :update]
   resources :sorts, except: :show
-  resources :challenges, only:[:index, :new ,:create, :edit, :update]
+  resources :challenges, only:[:index, :new ,:create, :edit, :update] do
+    member do
+      patch :finish
+    end
+  end
 end

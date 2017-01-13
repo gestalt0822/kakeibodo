@@ -37,6 +37,12 @@ class ChallengesController < ApplicationController
     redirect_to challenges_path
   end
 
+  def finish
+    @challenge = Challenge.find(params[:id])
+    @challenge.update(status:2)
+    redirect_to challenges_path
+  end
+
   private
     def challenges_params
       params.require(:challenge).permit(:deadline, :target)
