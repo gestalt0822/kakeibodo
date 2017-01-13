@@ -52,10 +52,13 @@ class ChallengesController < ApplicationController
       this_dif_amount = (@challenge.target - @challenge.total_amount) * dif_amount
       dif_duration = Point.find_by(name: "duration").each_point
       this_dif_duration = (@challenge.deadline - @challenge.start).to_i * dif_duration
+      current_user.continue += 1
+      current_user.save
       total_score = this_dif_amount + this_dif_duration
        @challenge.update(achieve: true, score:total_score)
     else
-       @challenge.update(achieve: false)
+      current_user.continue = 0
+      current_user.save
     end
     redirect_to challenges_path
   end
