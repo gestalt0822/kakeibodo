@@ -40,6 +40,11 @@ class ChallengesController < ApplicationController
   def finish
     @challenge = Challenge.find(params[:id])
     @challenge.update(status:2)
+    if @challenge.total_amount <= @challenge.target
+       @challenge.update(achieve: true)
+    else
+       @challenge.update(achieve: false)
+    end
     redirect_to challenges_path
   end
 
