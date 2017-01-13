@@ -13,7 +13,6 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = Challenge.all
-
   end
 
   def new
@@ -24,7 +23,17 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenges_params)
     @challenge.user_id = current_user.id
     @challenge.start = Date.today
-    @challenge.save    
+    @challenge.save
+    redirect_to challenges_path
+  end
+
+  def edit
+    @challenge = Challenge.find(params[:id])
+  end
+
+  def update
+    @challenge = Challenge.find(params[:id])
+    @challenge.update(challenges_params)
     redirect_to challenges_path
   end
 
