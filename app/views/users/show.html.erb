@@ -8,7 +8,7 @@
   <% if current_user.id == @user.id %>
     <ul>
       <li><%= current_user.name %>さんの総得点・・・<%= @user.total_score %></li>
-      <li><%= current_user.name %>さんのランク・・・</li>
+      <li><%= current_user.name %>さんのランク・・・<%= @ranking %></li>
     </ul>
   <% end %>
 </div>
