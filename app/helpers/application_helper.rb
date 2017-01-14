@@ -1,4 +1,5 @@
 module ApplicationHelper
+
   #現在のユーザのstatus1のchallengeのレコード及びそのdeadlineカラムの値を取得
   def finish_or_continue?
     if current_user.challenges.find_by(status:1)

@@ -14,12 +14,6 @@ class BookingsController < ApplicationController
   end
 
 # コントローラーに書くべきでない処理はモデルに移す。
-# challengesテーブルのtotal_amountカラムにamountカラムの金額を追加(中間テーブルを経由)
-# 特定のカラムの特定の値(challenge_idが同じ値)をすべて配列などで取得するメソッドが欲しい
-# さらに取得した値を合計したい
-# Bookandchallenge.where(challenge_id:get_challenge.last.id)
-# これも一度コントローラーに記述して動くのを確認してからモデルに移す。
-
   def create
     @booking = Booking.new(bookings_params)
     @booking.user_id = current_user.id
