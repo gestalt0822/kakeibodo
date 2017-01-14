@@ -1,18 +1,10 @@
 class ChallengesController < ApplicationController
-  #bookandchallengesテーブルの該当するchallenge_idの各booking_idに紐付いたamountカラムの値を合計する
   #のちにモデルに移す(challenge.rb)
-
-  #紐付いたchallge_idのbookandchallengesテーブルのレコードをwhereメソッドですべて取得(配列)
-  #配列の数を数えて変数iに代入
-  #for文で繰り返し処理をして合計、結果を変数に代入
-  #viewで変数を表示
   #データベースに値を記憶するロジックを記述
   #http://qiita.com/regonn/items/4de94c5879cd65829a76
-  #
-
 
   def index
-    @challenges = Challenge.all
+    @challenges = Challenge.all.order(created_at: :desc)
   end
 
   def new
@@ -37,9 +29,6 @@ class ChallengesController < ApplicationController
     redirect_to challenges_path
   end
 
-  #得点を計算するメッソドを実装
-  #pointsテーブルを作成
-  #期間・金額をpointsテーブルを元に得点を集計
   #集計結果をusersテーブルのpointsカラムに追加
   #マイページにpointsを集計
   #過去のチャレンジ一覧にポイントも記載
@@ -59,6 +48,7 @@ class ChallengesController < ApplicationController
     else
       current_user.continue = 0
       current_user.save
+      @challenge.update(score:0)
     end
     redirect_to challenges_path
   end
