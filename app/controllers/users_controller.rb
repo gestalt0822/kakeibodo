@@ -15,30 +15,30 @@ class UsersController < ApplicationController
           total_scores += challenge.score
         end
       end
-        @user.update(total_score: total_scores)
+      @user.update(total_score: total_scores)
     end
 
     @your_score = current_user.total_score
-  if Ranking.find(1).threshold > @your_score
-    @ranking = Ranking.find(1).name
-  elsif Ranking.find(2).threshold > @your_score
-    @ranking = Ranking.find(2).name
-  elsif Ranking.find(3).threshold > @your_score
-    @ranking = Ranking.find(3).name
-  elsif Ranking.find(4).threshold > @your_score
-    @ranking = Ranking.find(4).name
-  elsif Ranking.find(5).threshold > @your_score
-    @ranking = Ranking.find(5).name
-  elsif Ranking.find(6).threshold > @your_score
-    @ranking = Ranking.find(6).name
-  elsif Ranking.find(7).threshold > @your_score
-    @ranking = Ranking.find(7).name
-  elsif Ranking.find(8).threshold > @your_score
-    @ranking = Ranking.find(9).name
-  elsif Ranking.find(10).threshold > @your_score
-    @ranking = Ranking.find(10).name
-  else
-    @ranking = "ランク外"
+    if Ranking.find(1).threshold > @your_score
+      @ranking = Ranking.find(1).name
+    elsif Ranking.find(2).threshold > @your_score
+      @ranking = Ranking.find(2).name
+    elsif Ranking.find(3).threshold > @your_score
+      @ranking = Ranking.find(3).name
+    elsif Ranking.find(4).threshold > @your_score
+      @ranking = Ranking.find(4).name
+    elsif Ranking.find(5).threshold > @your_score
+      @ranking = Ranking.find(5).name
+    elsif Ranking.find(6).threshold > @your_score
+      @ranking = Ranking.find(6).name
+    elsif Ranking.find(7).threshold > @your_score
+      @ranking = Ranking.find(7).name
+    elsif Ranking.find(8).threshold > @your_score
+      @ranking = Ranking.find(9).name
+    elsif Ranking.find(10).threshold > @your_score
+      @ranking = Ranking.find(10).name
+    else
+      @ranking = "ランク外"
     end
   end
 end
