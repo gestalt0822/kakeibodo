@@ -9,9 +9,11 @@ class UsersController < ApplicationController
       @challenges = @user.challenges.where(user_id: @user.id)
       total_scores = 0
       @challenges.each do |challenge|
-        total_scores += challenge.score
+        if challenge.score
+          total_scores += challenge.score
+        end
       end
-      @user.update(total_score: total_scores)
+        @user.update(total_score: total_scores)
     end
   end
 end

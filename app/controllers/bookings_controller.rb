@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
 
   def index
     @booking = Booking.new
-    @bookings = Booking.all
+    @bookings = Booking.all.order(date: :desc)
   end
   #http://www.namaraii.com/rubytips/datetime/#section-7
 
