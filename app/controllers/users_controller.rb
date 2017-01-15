@@ -21,6 +21,8 @@ class UsersController < ApplicationController
     @your_score = current_user.total_score
     if Ranking.find(1).threshold > @your_score
       @ranking = Ranking.find(1).name
+      @next_rank = Ranking.find(2).name
+      @score_difference = Ranking.find(1).threshold - @your_score
     elsif Ranking.find(2).threshold > @your_score
       @ranking = Ranking.find(2).name
     elsif Ranking.find(3).threshold > @your_score

@@ -8,12 +8,15 @@
   <% if current_user.id == @user.id %>
     <ul>
       <li><%= current_user.name %>さんの総得点・・・<%= @user.total_score %></li>
-      <li><%= current_user.name %>さんのランク・・・<%= @ranking %></li>
+      <li><%= current_user.name %>さんのランク・・・<b><%= @ranking %></b></li>
+      <li>次は<b><%= @next_rank %></b>を目指しましょう！残り<%= @score_difference %>ポイントです！！</li>
+    </ul>
+    <ul>
       <li>
         <% if current_user.continue == 1 %>
-          <%= current_user.continue %>回目標達成しました！
+          <%= current_user.continue %>回目標達成しました！この後連続で目標達成するとボーナスポイント獲得です！
         <% elsif current_user.continue >= 1%>
-          <%= current_user.continue %>回連続目標達成中です！
+          <%= current_user.continue %>回連続目標達成中です！このまま連続で目標達成すると、ボーナスポイントどんどんアップです！
         <% end %>
       </li>
     </ul>
