@@ -41,33 +41,33 @@ class ChallengesController < ApplicationController
     if @challenge.total_amount <= @challenge.target
       #基本ポイントは挑戦日数
       if @challenge.deadline.yday < @challenge.start.yday
-        duration_point = (@challenge.deadline.yday + 365) - @challenge.start.yday
+        @duration_point = (@challenge.deadline.yday + 365) - @challenge.start.yday
       else
-        duration_point = @challenge.deadline.yday - @challenge.start.yday
+        @duration_point = @challenge.deadline.yday - @challenge.start.yday
       end
       #目標額と使用額の差を計算
       #(例).1000円が目標で900円が使用額なら余裕率10%
       #http://qiita.com/ryoff/items/0eb270fbc8de96cf158f
-      amount_point = @challenge.total_amount.to_f/@challenge.target.to_f
-      amount_point *= 100
-      amount_point = 100 - amount_point
-      amount_point /= 100#余裕率を小数点で表す(10%なら0.1)
+      @amount_point = @challenge.total_amount.to_f/@challenge.target.to_f#パーセントを小数点で表す(例).10%なら0.1
+      @amount_point *= 100
+      @amount_point = 100 - @amount_point
+      @amount_point /= 100#余裕率を小数点で表す(10%なら0.1)
       #基本ポイントX余裕率のボーナス(例).基本ポイント30で余裕率10%なら33ポイント
-      total_score = duration_point + duration_point * amount_point
+      @amount_bonus = @duration_point * @amount_point #期間のボーナス、
+      @total_score = @duration_point + @amount_bonus
       #継続回数を計算&挑戦日数が28日以上の場合は継続ポイントを加算
-      if duration_point >= 28
+      if @duration_point >= 28
         current_user.continue += 1
         current_user.save
-        bonus_point = current_user.continue * duration_point
-        total_score += bonus_point
+        @bonus_point = current_user.continue * @duration_point/10
+        @total_score += @bonus_point
       end
-      @challenge.update(achieve: true, score:total_score)
+      @challenge.update(achieve: true, score:@total_score)
     else
       current_user.continue = 0
       current_user.save
       @challenge.update(score:0)
     end
-    redirect_to challenges_path
   end
 
   private

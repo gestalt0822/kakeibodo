@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :challenges, only:[:index, :new ,:create, :edit, :update] do
     member do
       patch :finish
+      get :finish
     end
   end
   resources :users, only:[:index, :show]

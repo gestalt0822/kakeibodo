@@ -105,7 +105,17 @@ ul.user_detail{
 .point{
   font-size: 15px;
   font-weight: bold;
+  color: orange;
+}
+
+.total_point{
+  font-size: 20px;
+  font-weight: bold;
   color: red;
+}
+
+li{
+padding: 10px 0px 0px 0px;
 }
 
 
