@@ -14,6 +14,7 @@ class ChallengesController < ApplicationController
   def create
     @challenge = Challenge.new(challenges_params)
     @challenge.total_amount = 0
+    @challenge.continue_times = 0
     @challenge.user_id = current_user.id
     @challenge.start = Date.today
     @challenge.save
@@ -39,7 +40,11 @@ class ChallengesController < ApplicationController
     @challenge.update(status:2)
     if @challenge.total_amount <= @challenge.target
       #基本ポイントは挑戦日数
-      duration_point = @challenge.deadline.yday - @challenge.start.yday
+      if @challenge.deadline.yday < @challenge.start.yday
+        duration_point = (@challenge.deadline.yday + 365) - @challenge.start.yday
+      else
+        duration_point = @challenge.deadline.yday - @challenge.start.yday
+      end
       #目標額と使用額の差を計算
       #(例).1000円が目標で900円が使用額なら余裕率10%
       #http://qiita.com/ryoff/items/0eb270fbc8de96cf158f
@@ -49,9 +54,13 @@ class ChallengesController < ApplicationController
       amount_point /= 100#余裕率を小数点で表す(10%なら0.1)
       #基本ポイントX余裕率のボーナス(例).基本ポイント30で余裕率10%なら33ポイント
       total_score = duration_point + duration_point * amount_point
-      #継続回数を計算
-      current_user.continue += 1
-      current_user.save
+      #継続回数を計算&挑戦日数が28日以上の場合は継続ポイントを加算
+      if duration_point >= 28
+        current_user.continue += 1
+        current_user.save
+        bonus_point = current_user.continue * duration_point
+        total_score += bonus_point
+      end
       @challenge.update(achieve: true, score:total_score)
     else
       current_user.continue = 0

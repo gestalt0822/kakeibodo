@@ -9,6 +9,13 @@
     <ul>
       <li><%= current_user.name %>さんの総得点・・・<%= @user.total_score %></li>
       <li><%= current_user.name %>さんのランク・・・<%= @ranking %></li>
+      <li>
+        <% if current_user.continue == 1 %>
+          <%= current_user.continue %>回目標達成しました！
+        <% elsif current_user.continue >= 1%>
+          <%= current_user.continue %>回連続目標達成中です！
+        <% end %>
+      </li>
     </ul>
   <% end %>
 </div>
