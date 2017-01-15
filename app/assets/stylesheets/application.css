@@ -102,6 +102,12 @@ ul.user_detail{
   font-size: 10px;
 }
 
+.point{
+  font-size: 15px;
+  font-weight: bold;
+  color: red;
+}
+
 
 /*戻るボタンなどの文字リンク*/
 

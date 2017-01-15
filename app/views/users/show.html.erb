@@ -7,9 +7,9 @@
 
   <% if current_user.id == @user.id %>
     <ul>
-      <li><%= current_user.name %>さんの総得点・・・<%= @user.total_score %></li>
-      <li><%= current_user.name %>さんのランク・・・<b><%= @ranking %></b></li>
-      <li>次は<b><%= @next_rank %></b>を目指しましょう！残り<%= @score_difference %>ポイントです！！</li>
+      <li><%= current_user.name %>さんの総得点・・・<span class="point"><%= @user.total_score %></span></li>
+      <li><%= current_user.name %>さんのランク・・・<span class="point"><%= @ranking %></span></li>
+      <li>次は<b><%= @next_rank %></b>を目指しましょう！<span class="point">残り<%= @score_difference %>ポイント</span>です！！</li>
     </ul>
     <ul>
       <li>
