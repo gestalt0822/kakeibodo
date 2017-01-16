@@ -8,4 +8,11 @@ Rails.application.routes.draw do
   end
   resources :categories, only:[:index, :new ,:create, :destroy, :edit, :update]
   resources :sorts, except: :show
+  resources :challenges, except: :destroy do
+    member do
+      patch :finish
+      get :finish
+    end
+  end
+  resources :users, only:[:index, :show]
 end

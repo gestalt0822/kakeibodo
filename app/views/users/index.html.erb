@@ -1,0 +1,19 @@
+<div class="main_contents">
+  <h2>ユーザー一覧</h2>
+    <% @users.each do |user| %>
+      <% unless user.id == current_user.id %>
+        <div class="col-sm-6 col-xs-12">
+          <div class="each_user">
+            <ul class="user_detail">
+              <li><b><%= user.name %></b>さん</li>
+              <li><span class="email"><%= user.email %></span></li>
+              <li><%= link_to '詳細', user_path(user) , class: 'btn btn-default btn-xs btn btn-primary user_detail'%></li>
+            </ul>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+    <div class="links">
+      <%= link_to '戻る', :back %>
+    </div>
+</div>

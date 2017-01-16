@@ -1,0 +1,27 @@
+<div class="main_contents">
+  <% if current_user.id == @user.id %>
+    <h2><%= current_user.name %>さんのマイページ</h2>
+  <% else %>
+    <h2><%= @user.name %>さんの詳細ページ</h2>
+  <% end %>
+
+  <% if current_user.id == @user.id %>
+    <ul class="list_info">
+      <li><%= current_user.name %>さんの総得点・・・<span class="point"><%= @user.total_score.round(2) %>ポイント</span></li>
+      <li><%= current_user.name %>さんのランク・・・<span class="point"><%= @ranking %></span></li>
+      <li>次は<b><%= @next_rank %></b>を目指しましょう！<span class="point">残り<%= @score_difference.round(2) %>ポイント</span>です！！</li>
+    </ul>
+    <ul class="list_info">
+      <li>
+        <% if current_user.continue == 1 %>
+          <%= current_user.continue %>回目標達成しました！この後連続で目標達成するとボーナスポイント獲得です！
+        <% elsif current_user.continue >= 1%>
+          <%= current_user.continue %>回連続目標達成中です！このまま連続で目標達成すると、ボーナスポイントどんどんアップです！
+        <% end %>
+      </li>
+    </ul>
+  <% end %>
+  <div class="links">
+   <%= link_to 'ユーザー情報を編集', edit_user_registration_path %>
+  </div>
+</div>

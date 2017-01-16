@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109050115) do
+ActiveRecord::Schema.define(version: 20170116030343) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "bookandchallenges", force: :cascade do |t|
+    t.integer  "challenge_id"
+    t.integer  "booking_id"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
 
   create_table "bookings", force: :cascade do |t|
     t.string   "detail"
@@ -29,6 +36,33 @@ ActiveRecord::Schema.define(version: 20170109050115) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "challenges", force: :cascade do |t|
+    t.integer  "user_id"
+    t.datetime "start"
+    t.datetime "deadline"
+    t.integer  "total_amount"
+    t.integer  "target"
+    t.integer  "score"
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
+    t.integer  "status",       default: 1
+    t.boolean  "achieve",      default: false, null: false
+  end
+
+  create_table "points", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "each_point"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "rankings", force: :cascade do |t|
+    t.string   "name"
+    t.integer  "threshold"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -54,6 +88,8 @@ ActiveRecord::Schema.define(version: 20170109050115) do
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
     t.string   "name"
+    t.integer  "continue",               default: 0
+    t.integer  "total_score",            default: 0
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

@@ -1,0 +1,11 @@
+<%= form_for(@challenge) do |f| %>
+ <div class="form-group">
+   <%= f.label :最終日 %>
+   <%= f.datetime_select :deadline %>
+ </div>
+ <div class="form-group">
+   <%= f.label :目標額 %>
+   <%= f.text_field :target %><span>円</span>
+ </div>
+ <%= f.submit '決定', class: 'btn btn-info btn-sm btn-margin' %>
+<% end %>

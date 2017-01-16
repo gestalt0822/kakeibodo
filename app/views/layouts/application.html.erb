@@ -20,9 +20,13 @@
         <li><%= link_to '新規入力', new_booking_path %></li>
         <li><%= link_to '項目一覧', categories_path %></li>
         <li><%= link_to '新規項目', new_category_path %></li>
+        <li><%= link_to 'チャレンジ一覧', challenges_path %></li>
+        <li><%= link_to '新チャレンジ', new_challenge_path %></li>
+        <li><%= link_to 'マイページ', user_path(current_user) %></li>
+        <li><%= link_to 'ユーザー一覧', users_path %></li>
         <li role="separator" class="divider"></li>
         <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-        <li><%= link_to 'マイページ', edit_user_registration_path %></li>
+        <li><%= link_to 'ユーザー情報編集', edit_user_registration_path %></li>
       <% else %>
         <li><%= link_to 'ログイン', new_user_session_path %></li>
         <li><%= link_to '新規登録', new_user_registration_path %></li>
