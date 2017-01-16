@@ -37,7 +37,7 @@ class BookingsController < ApplicationController
   end
 
   def get_sorts
-    render partial: 'select_sort', locals: {sort_id: params{:sort_id}} 
+    render partial: 'select_sort', locals: {sort_id: params[:category_id]}
   end
 
   private

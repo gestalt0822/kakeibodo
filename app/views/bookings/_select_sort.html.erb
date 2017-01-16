@@ -1,3 +1,4 @@
 <div class="form-group">
+  <b>細目</b>
   <%= collection_select(:sort, :sort_id, Sort.where(category_id: sort_id), :id, :name) %>
 </div>
