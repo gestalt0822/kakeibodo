@@ -2,13 +2,13 @@
   <h2>今回のチャレンジの結果</h2>
   <% if @challenge.total_amount <= @challenge.target %>
     <ul class="list_info">
-      <li>基本ポイント・・・1×チャレンジ日数（<%= @duration_point %>日）=<span class="point"><%= @duration_point %>ポイント</span></li>
-      <li>余裕で達成ポイント・・・基本ポイント<%= @duration_point %>×余裕率（<%= @amount_point*100 %>％）= <span class="point"><%= @amount_bonus %>ポイント</span></li>
+      <li>基本ポイント・・・1×チャレンジ日数（<%= @duration_point %>日）=<span class="point"><%= @duration_point.round(2) %>ポイント</span></li>
+      <li>余裕で達成ポイント・・・基本ポイント<%= @duration_point %>×余裕率（<%= @amount_point*100 %>％）= <span class="point"><%= @amount_bonus.round(2) %>ポイント</span></li>
       <li class="email">目標5000円のところ4000円で終了したら余裕率20%</li>
       <% if @duration_point >= 28 %>
-        <li>連続達成回数・・・<%=  current_user.continue %>回×基本ポイント<%= @duration_point %>ポイントの10%＝ <span class="point"><%= @bonus_point %>ポイント</span></li>
+        <li>連続達成回数・・・<%=  current_user.continue %>回×基本ポイント<%= @duration_point %>ポイントの10%＝ <span class="point"><%= @bonus_point.round(2) %>ポイント</span></li>
       <% end %>
-        <li>合計・・・<span class="total_point"><%= @total_score %>ポイント</span></li>
+        <li>合計・・・<span class="total_point"><%= @total_score.round(2) %>ポイント</span></li>
     </ul>
   <% else %>
     <div>残念ながら、チャレンジ失敗です！次回頑張りましょう。</div>

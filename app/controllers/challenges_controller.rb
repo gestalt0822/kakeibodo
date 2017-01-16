@@ -18,6 +18,7 @@ class ChallengesController < ApplicationController
     @challenge = Challenge.new(challenges_params)
     @challenge.total_amount = 0
     @challenge.continue_times = 0
+    @challenge.score = 0
     @challenge.user_id = current_user.id
     @challenge.start = Date.today
     #@challenge.save(total_amount, ...)でリファクタ
@@ -38,7 +39,7 @@ class ChallengesController < ApplicationController
   def show
     @challenge = Challenge.find(params[:id])
     @challenges = @challenge.challenge_lists
-    
+
       #基本ポイントは挑戦日数
       if @challenge.deadline.yday < @challenge.start.yday#年をまたぐ場合、チャレンジ期間に矛盾が生じないようにするための処理
         @duration_point = (@challenge.deadline.yday + 365) - @challenge.start.yday
