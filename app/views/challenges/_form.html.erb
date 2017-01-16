@@ -1,7 +1,7 @@
 <%= form_for(@challenge) do |f| %>
  <div class="form-group">
    <%= f.label :最終日 %>
-   <%= f.datetime_select :deadline %>
+   <%= f.date_select :deadline, use_month_numbers: true %>
  </div>
  <div class="form-group">
    <%= f.label :目標額 %>

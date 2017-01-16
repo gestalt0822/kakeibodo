@@ -68,6 +68,11 @@ body{
   margin-bottom: 30px;
 }
 
+/* 入力フォームの横幅を小さく*/
+.basic_form{
+  padding: 0px 0px 20px 0px;
+}
+
 /* 終了したチャレンジのお知らせ*/
 
 .finished_challenge{

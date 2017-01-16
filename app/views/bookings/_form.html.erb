@@ -1,22 +1,26 @@
 <%= form_for(@booking) do |f| %>
-  <div class="form-group">
-    <b>金額</b>
-    <%= f.text_field :amount, autofocus: true , class: "form-control" %>
+  <div class="row basic_form">
+    <div class="col-xs-6">
+      <b>金額</b>
+      <%= f.text_field :amount, autofocus: true , class: "form-control" %>
+    </div>
+    <div class="col-xs-6">
+      <b>詳細</b>
+      <%= f.text_field :detail, autofocus: true , class: "form-control" %>
+    </div>
   </div>
-  <div class="form-group">
-    <b>詳細</b>
-    <%= f.text_field :detail, autofocus: true , class: "form-control" %>
-  </div>
-  <div class="form-group">
-    <b>日付</b>
-    <%= f.date_select :date %>
-  </div>
-  <div class="form-group">
-    <b>項目</b>
-    <%= f.collection_select :category_id, Category.all, :id, :name %>
-  </div>
-  <div id="select_sort">
-    <%= render partial: 'select_sort', locals: {sort_id: Sort.first.id} %>
+  <div class="row basic_form">
+    <div class="col-xs-4">
+      <b>日付</b>
+      <%= f.date_select :date, use_month_numbers: true %>
+    </div>
+    <div class="col-xs-4">
+      <b>項目</b>
+      <%= f.collection_select :category_id, Category.all, :id, :name %>
+    </div>
+    <div id="select_sort" class="col-xs-4">
+      <%= render partial: 'select_sort', locals: {sort_id: Sort.first.id} %>
+    </div>
   </div>
   <%= f.submit '投稿', class: 'btn btn-info btn-block btn-margin' %>
 <% end %>
