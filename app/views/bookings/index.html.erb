@@ -7,7 +7,6 @@
       <th>金額</th><th>項目</th><th>詳細</th><th>細目</th><th>日時</th><th></th>
     </tr>
     <% @bookings.each do |booking| %>
-      <% if current_user.id == booking.user.id %>
         <tr>
           <td><%= booking.amount %>円</td>
           <td><%= booking.category.name %></td>
@@ -19,7 +18,6 @@
             <%= link_to '削除', booking_path(booking), method: :delete, class: 'btn btn-default btn-xs btn-danger' %>
           </td>
         </tr>
-      <% end %>
-    <% end %>
+     <% end %>
   </table>
 </div>

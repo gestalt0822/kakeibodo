@@ -4,7 +4,7 @@ class BookingsController < ApplicationController
 
   def index
     @booking = Booking.new
-    @bookings = Booking.all
+    @bookings = Booking.where(user_id: current_user.id)
   end
   #http://www.namaraii.com/rubytips/datetime/#section-7
 
@@ -17,6 +17,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
     @booking.user_id = current_user.id
     @booking.save
+    @booking.update(sorts_params)
     redirect_to bookings_path
   end
 
@@ -27,6 +28,7 @@ class BookingsController < ApplicationController
   def update
    @booking = Booking.find(params[:id])
    @booking.update(bookings_params)
+   @booking.update(sorts_params)
    redirect_to bookings_path
   end
 
@@ -43,6 +45,10 @@ class BookingsController < ApplicationController
   private
     def bookings_params
       params.require(:booking).permit(:amount, :detail ,:date, :category_id, :sort_id)
+    end
+
+    def sorts_params
+      params.require(:sort).permit(:sort_id)
     end
 
     def set_booking
