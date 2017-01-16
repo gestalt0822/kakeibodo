@@ -4,11 +4,7 @@ class BookingsController < ApplicationController
 
   def index
     @booking = Booking.new
-<<<<<<< HEAD
-    @bookings = Booking.where(user_id: current_user.id)
-=======
-    @bookings = Booking.all.order(date: :desc)
->>>>>>> challenge
+    @bookings = Booking.where(user_id: current_user.id).order(date: :desc)
   end
   #http://www.namaraii.com/rubytips/datetime/#section-7
 
@@ -22,10 +18,9 @@ class BookingsController < ApplicationController
     @booking = Booking.new(bookings_params)
     @booking.user_id = current_user.id
     @booking.save
-<<<<<<< HEAD
     @booking.update(sorts_params)
     redirect_to bookings_path
-=======
+
 
     if current_user.challenges.find_by(status: 1, user_id:current_user.id)
       get_challenge = Challenge.where(user_id:current_user.id,status:1)
@@ -41,7 +36,6 @@ class BookingsController < ApplicationController
       latest_challenge.update(total_amount: amounts)
     end
       redirect_to bookings_path
->>>>>>> challenge
   end
 
   def edit
