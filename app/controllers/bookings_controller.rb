@@ -19,9 +19,7 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.save
     @booking.update(sorts_params)
-    redirect_to bookings_path
-
-
+  
     if current_user.challenges.find_by(status: 1, user_id:current_user.id)
       get_challenge = Challenge.where(user_id:current_user.id,status:1)
       get_booking = Booking.where(user_id:current_user.id,).last

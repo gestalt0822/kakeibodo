@@ -59,7 +59,7 @@ class UsersController < ApplicationController
     else
       @ranking = "ランク外"
       @next_rank = "ありません、あなたは最強だから"
-      @score_difference = "ゼロ"
+      @score_difference = "0"
     end
   end
 end

@@ -17,7 +17,6 @@ class ChallengesController < ApplicationController
   def create
     @challenge = Challenge.new(challenges_params)
     @challenge.total_amount = 0
-    @challenge.continue_times = 0
     @challenge.score = 0
     @challenge.user_id = current_user.id
     @challenge.start = Date.today
