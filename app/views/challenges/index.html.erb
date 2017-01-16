@@ -22,9 +22,11 @@
           <td><%= challenge.deadline.strftime("%m月%d日")%></td>
           <td>
             <%= link_to '編集', edit_challenge_path(challenge), class:'btn btn-warning btn-xs btn-primary' %>
+            <%= link_to '詳細', challenge_path(challenge), class:'btn btn-success btn-xs btn-primary' %>
             <% if finish_or_continue? %>
               <%= link_to '終了', finish_challenge_path(challenge), method: :patch, class:'btn btn-danger btn-xs'  %>
-            <% end %><a href="#">詳細</a>
+            <% end %>
+          </td>
         </tr>
       <% end %>
     <% end %>
@@ -45,7 +47,7 @@
           <td><%= challenge.deadline.strftime("%m月%d日")%></td>
           <td><%= challenge.achieve %></td>
           <td><%= challenge.score %>点</td>
-          <td><a href="#">詳細</a></td>
+          <td><%= link_to '詳細', challenge_path(challenge), class:'btn btn-success btn-xs btn-primary' %></td>
         </tr>
       <% end %>
     <% end %>

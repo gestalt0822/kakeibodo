@@ -35,6 +35,25 @@ class ChallengesController < ApplicationController
     redirect_to challenges_path
   end
 
+  def show
+    @challenge = Challenge.find(params[:id])
+    @challenges = @challenge.challenge_lists
+    
+      #基本ポイントは挑戦日数
+      if @challenge.deadline.yday < @challenge.start.yday#年をまたぐ場合、チャレンジ期間に矛盾が生じないようにするための処理
+        @duration_point = (@challenge.deadline.yday + 365) - @challenge.start.yday
+      else
+        @duration_point = @challenge.deadline.yday - @challenge.start.yday#チャレンジ期間を判定
+      end
+      @amount_point = @challenge.total_amount.to_f/@challenge.target.to_f#パーセントを小数点で表す(例).10%なら0.1
+      @amount_point *= 100
+      @amount_point = 100 - @amount_point
+      @amount_point /= 100#余裕率を小数点で表す(10%なら0.1)
+      #基本ポイントX余裕率のボーナス(例).基本ポイント30で余裕率10%なら33ポイント
+      @amount_bonus = @duration_point * @amount_point #期間のボーナス、
+      @total_score = @duration_point + @amount_bonus
+  end
+
   #集計結果をusersテーブルのpointsカラムに追加
   #マイページにpointsを集計
   #過去のチャレンジ一覧にポイントも記載
