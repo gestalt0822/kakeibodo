@@ -9,6 +9,9 @@ class ChallengesController < ApplicationController
 
   def new
     @challenge = Challenge.new
+    if Challenge.find_by(status:1, user_id:current_user.id)
+      redirect_to challenges_path, notice: "同時に複数のチャレンジを行うことはできません！既存のチャレンジ終了後に行って下さい。"
+    end
   end
 
   def create
@@ -17,6 +20,7 @@ class ChallengesController < ApplicationController
     @challenge.continue_times = 0
     @challenge.user_id = current_user.id
     @challenge.start = Date.today
+    #@challenge.save(total_amount, ...)でリファクタ
     @challenge.save
     redirect_to challenges_path
   end
@@ -38,12 +42,12 @@ class ChallengesController < ApplicationController
   def finish
     @challenge = Challenge.find(params[:id])
     @challenge.update(status:2)
-    if @challenge.total_amount <= @challenge.target
+    if @challenge.total_amount <= @challenge.target#目標達成したかどうかを判定
       #基本ポイントは挑戦日数
-      if @challenge.deadline.yday < @challenge.start.yday
+      if @challenge.deadline.yday < @challenge.start.yday#年をまたぐ場合、チャレンジ期間に矛盾が生じないようにするための処理
         @duration_point = (@challenge.deadline.yday + 365) - @challenge.start.yday
       else
-        @duration_point = @challenge.deadline.yday - @challenge.start.yday
+        @duration_point = @challenge.deadline.yday - @challenge.start.yday#チャレンジ期間を判定
       end
       #目標額と使用額の差を計算
       #(例).1000円が目標で900円が使用額なら余裕率10%

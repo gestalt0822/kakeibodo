@@ -7,10 +7,10 @@ class UsersController < ApplicationController
 #challengesコントローラーでチャレンジ終了時にやるべきでは？
   def show
     @user = User.find(params[:id])
-    if @user.challenges.where(user_id: @user.id)
-      @challenges = @user.challenges.where(user_id: @user.id)
-      total_scores = 0
-      @challenges.each do |challenge|
+    if @user.challenges.where(user_id: @user.id)#該当ユーザーのチャレンジが存在している場合のみ以下実行
+      @challenges = @user.challenges.where(user_id: @user.id)#該当ユーザーのチャレンジを取得
+      total_scores = 0#全チャレンジの合計金額をtotal_scoresで扱う
+      @challenges.each do |challenge|#全チャレンジのscoreカラムの値を合計
         if challenge.score
           total_scores += challenge.score
         end
@@ -18,6 +18,7 @@ class UsersController < ApplicationController
       @user.update(total_score: total_scores)
     end
 
+    #合計スコアによって当てはまるランクを表示
     @your_score = current_user.total_score
     if Ranking.find(1).threshold > @your_score
       @ranking = Ranking.find(1).name

@@ -6,12 +6,12 @@
   <% end %>
 
   <% if current_user.id == @user.id %>
-    <ul>
+    <ul class="list_info">
       <li><%= current_user.name %>さんの総得点・・・<span class="point"><%= @user.total_score %>ポイント</span></li>
       <li><%= current_user.name %>さんのランク・・・<span class="point"><%= @ranking %></span></li>
       <li>次は<b><%= @next_rank %></b>を目指しましょう！<span class="point">残り<%= @score_difference %>ポイント</span>です！！</li>
     </ul>
-    <ul>
+    <ul class="list_info">
       <li>
         <% if current_user.continue == 1 %>
           <%= current_user.continue %>回目標達成しました！この後連続で目標達成するとボーナスポイント獲得です！
