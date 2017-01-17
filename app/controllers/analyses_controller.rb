@@ -4,8 +4,6 @@ class AnalysesController < ApplicationController
    @amounts = Array.new
    num = 0
 
-
-
    while num < @categories.count do
      @each_amount = Array.new
      @each_amount << Category.find(@categories[num].category_id).name
@@ -14,6 +12,7 @@ class AnalysesController < ApplicationController
      @amounts << @each_amount
      num += 1
    end
-  #@array= [[1,2,3,4],[11,12,13,14]]
  end
+
+
 end
