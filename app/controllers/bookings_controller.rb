@@ -6,7 +6,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new
     @bookings = Booking.where(user_id: current_user.id).order(date: :desc)
     @bookings_now = Booking.where(user_id: current_user.id, date: Time.now.beginning_of_month..Time.now.end_of_month).order(date: :desc)
-    @bookings_then = Booking.where(user_id: current_user.id, date: Time.now.prev_month.beginning_of_month..Time.now.prev_month.end_of_month).order(date: :desc)
+    @bookings_then = current_user.bookings.where.not(date: Time.now.beginning_of_month..Time.now.end_of_month).order(date: :desc)
     this_month = Date.today.month
     this_year = Date.today.year
   end
