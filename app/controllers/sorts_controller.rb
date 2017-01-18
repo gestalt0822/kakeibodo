@@ -5,6 +5,7 @@ class SortsController < ApplicationController
 
   def new
     @sort = Sort.new
+    @sorts = Sort.all
   end
 
   def create

@@ -9,7 +9,7 @@
 <body>
 
 <header>
-  <h1 id="main_title">家計簿道</h1>
+  <h1 id="main_title"><%= link_to '家計簿道', bookings_path %></h1>
   <div class="dropdown">
     <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
     Dropdown
@@ -19,8 +19,6 @@
       <% if user_signed_in? %>
         <li><%= link_to '一覧', bookings_path %></li>
         <li><%= link_to '新規入力', new_booking_path %></li>
-        <li><%= link_to '項目一覧', categories_path %></li>
-        <li><%= link_to '新規項目', new_category_path %></li>
         <li><%= link_to 'チャレンジ一覧', challenges_path %></li>
         <li><%= link_to '新チャレンジ', new_challenge_path %></li>
         <li><%= link_to '集計', analyses_path %><li>

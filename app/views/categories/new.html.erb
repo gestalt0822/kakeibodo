@@ -10,10 +10,13 @@
       <tr>
         <td><%= category.name %></td>
         <td>
-          <%= link_to '削除', category_path(category), method: :delete, class: 'btn btn-default btn-xs btn-primary' %>
-          <%= link_to '修正', edit_category_path(category) , class: 'btn btn-default btn-xs btn-danger' %>
+          <%= link_to '変更', edit_category_path(category) , class: 'btn btn-default btn-xs btn-warning' %>
+          <%= link_to '削除', category_path(category), method: :delete, class: 'btn btn-default btn-xs btn-danger' %>
         </td>
       <tr>
     <% end %>
    </table>
+   <div class="links">
+     <%= link_to '戻る', :back %>
+   </div>
 </div>

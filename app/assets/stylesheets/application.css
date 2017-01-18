@@ -53,6 +53,16 @@ body{
    text-align: center;
  }
 
+ h1 a{
+    color: #fff;
+    text-decoration: none;
+ }
+
+ h1 a:hover{
+    color: #fff;
+    text-decoration: none;
+ }
+
  #contents{
    padding-bottom: 80px;
  }
