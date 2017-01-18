@@ -9,8 +9,8 @@
     <ul class="list_info">
       <li><%= current_user.name %>さんの総得点・・・<span class="point"><%= @user.total_score.round(2) %>ポイント</span></li>
       <li><%= current_user.name %>さんのランク・・・<span class="point"><%= @ranking %></span></li>
-      <% unless @score_difference = "0" %>
-        <li>次は<b><%= @next_rank %></b>を目指しましょう！<span class="point">残り
+      <% unless @score_difference == 0 %>
+      <li>次は<b><%= @next_rank %></b>を目指しましょう！！<span class="point">残り
         <%= @score_difference.round(2) %>ポイント</span>です！！</li>
       <% end %>
       <li><%= @ranking %>のあなたに贈る言葉</li>
@@ -20,9 +20,9 @@
     <ul class="list_info">
       <li>
         <% if current_user.continue == 1 %>
-          <%= current_user.continue %>回目標達成しました！この後連続で目標達成するとボーナスポイント獲得です！
+          <span class="point"><%= current_user.continue %>回</span>目標達成しました！この後連続で目標達成するとボーナスポイント獲得です！
         <% elsif current_user.continue >= 1%>
-          <%= current_user.continue %>回連続目標達成中です！このまま連続で目標達成すると、ボーナスポイントどんどんアップです！
+          <span class="point"><%= current_user.continue %>回連続</span>目標達成中です！このまま連続で目標達成すると、ボーナスポイントどんどんアップです！
         <% end %>
       </li>
     </ul>
