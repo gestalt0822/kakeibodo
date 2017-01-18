@@ -1,16 +1,16 @@
 class SortsController < ApplicationController
   def index
-    @sorts = Sort.all
+    @sorts = Sort.all.order(category_id: :asc)
   end
 
   def new
     @sort = Sort.new
-    @sorts = Sort.all
+    @sorts = Sort.all.order(category_id: :asc)
   end
 
   def create
     @sort = Sort.create(sorts_params)
-    redirect_to sorts_path
+    redirect_to new_sort_path
   end
 
   def edit
