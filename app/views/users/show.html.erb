@@ -13,6 +13,9 @@
         <li>次は<b><%= @next_rank %></b>を目指しましょう！<span class="point">残り
         <%= @score_difference.round(2) %>ポイント</span>です！！</li>
       <% end %>
+      <li><%= @ranking %>のあなたに贈る言葉</li>
+      <li class="message"><b>「<%= @message %>」</b></li>
+      <li class="messenger">by <%= @messenger %></li>
     </ul>
     <ul class="list_info">
       <li>
