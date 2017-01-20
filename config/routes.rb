@@ -2,6 +2,9 @@ Rails.application.routes.draw do
   root 'bookings#index'
   devise_for :users
   resources :bookings, except: :show  do
+    member do
+      patch :unlist
+    end
     collection do
       get 'get_sorts'
     end

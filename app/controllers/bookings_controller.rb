@@ -60,6 +60,12 @@ class BookingsController < ApplicationController
     render partial: 'select_sort', locals: {sort_id: params[:category_id]}
   end
 
+  def unlist
+    @booking = Booking.find(params[:id])
+    @booking.update(unlist: true)
+    redirect_to bookings_path
+  end
+
   private
     def bookings_params
       params.require(:booking).permit(:amount, :detail ,:date, :category_id, :sort_id)
