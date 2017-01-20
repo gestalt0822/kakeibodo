@@ -23,18 +23,18 @@ class BookingsController < ApplicationController
     @booking.user_id = current_user.id
     @booking.save
     @booking.update(sorts_params)
-    if current_user.challenges.find_by(status: 1, user_id:current_user.id)
-      get_challenge = Challenge.where(user_id:current_user.id,status:1)
-      get_booking = Booking.where(user_id:current_user.id,).last
-      Bookandchallenge.create(challenge_id:get_challenge.last.id ,booking_id:get_booking.id)
-      challengeId = current_user.challenges.find_by(status:1).id
-      challengings = Bookandchallenge.where(challenge_id: challengeId )
-      amounts = 0
-      challengings.each do |challenging |
-        amounts += challenging.booking.amount
-      end
-      latest_challenge = current_user.challenges.find_by(status:1)
-      latest_challenge.update(total_amount: amounts)
+    if current_user.challenges.find_by(status: 1, user_id:current_user.id)#現在のユーザーが実施中のチャレンジがあるか？
+      get_challenge = Challenge.where(user_id:current_user.id,status:1)#現在のチャレンジを取得
+      get_booking = Booking.where(user_id:current_user.id,).last#保存したばかりののbookingsレコードを取得
+      Bookandchallenge.create(challenge_id:get_challenge.last.id ,booking_id:get_booking.id)#Bookandhcallengeの新レコードを作成保存
+      # challengeId = current_user.challenges.find_by(status:1).id#在のユーザーが実施中のチャレンジのidを取得
+      # challengings = Bookandchallenge.where(challenge_id: challengeId )#同一チャレンジidのBookandchallengeのレコードをすべて取得
+      # # amounts = 0
+      # # challengings.each do |challenging |
+      # #   amounts += challenging.booking.amount
+      # # end
+      # latest_challenge = current_user.challenges.find_by(status:1)
+      # # latest_challenge.update(total_amount: amounts)
     end
       redirect_to bookings_path
   end

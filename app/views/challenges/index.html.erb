@@ -16,7 +16,7 @@
       <% if current_user.id == challenge.user.id && challenge.status == 1%>
         <tr>
           <td><%= challenge.start.strftime("%m月%d日")%></td>
-          <td><%= challenge.total_amount %>円</td>
+          <td><%= Challenge.find_by(id:challenge.id).moneys.sum(:amount) %>円</td>
           <td><%= challenge.target %>円</td>
           <td><%= challenge.deadline.strftime("%m月%d日")%></td>
           <td>
@@ -40,7 +40,7 @@
       <% if current_user.id == challenge.user.id && challenge.status != 1%>
         <tr>
           <td><%= challenge.start.strftime("%m月%d日")%></td>
-          <td><%= challenge.total_amount %>円</td>
+          <td><%= Challenge.find_by(id:challenge.id).moneys.sum(:amount) %>円</td>
           <td><%= challenge.target %>円</td>
           <td><%= challenge.deadline.strftime("%m月%d日")%></td>
           <td><%= challenge.achieve %></td>
