@@ -6,9 +6,9 @@ class AnalysesController < ApplicationController
 
    while num < @categories_now.count do
      @each_amount = Array.new
-     @each_amount << Category.find(@categories_now[num].category_id).name
-     @each_amount << current_user.bookings.where(category_id: @categories_now[num].category_id).sum(:amount)
-     @each_amount << (current_user.bookings.where(category_id:@categories_now[num].category_id).sum(:amount).to_f/current_user.bookings.where(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount).to_f*100).round(2)
+     @each_amount << Category.find(@categories_now[num].category_id).name#カテゴリー名
+     @each_amount << current_user.bookings.where(category_id: @categories_now[num].category_id).sum(:amount)#金額
+     @each_amount << (current_user.bookings.where(category_id:@categories_now[num].category_id).where(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount).to_f/current_user.bookings.where(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount).to_f*100).round(1)
      @amounts_now << @each_amount
      num += 1
    end
@@ -21,7 +21,7 @@ class AnalysesController < ApplicationController
      @each_amount = Array.new
      @each_amount << Category.find(@categories_then[num].category_id).name
      @each_amount << current_user.bookings.where(category_id: @categories_then[num].category_id).sum(:amount)
-     @each_amount << (current_user.bookings.where(category_id:@categories_then[num].category_id).sum(:amount).to_f/current_user.bookings.where.not(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount).to_f*100).round(2)
+     @each_amount << (current_user.bookings.where(category_id:@categories_then[num].category_id).where.not(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount).to_f/current_user.bookings.where.not(date: Time.now.beginning_of_month..Time.now.end_of_month).sum(:amount).to_f*100).round(1)
      @amounts_then << @each_amount
      num += 1
    end
