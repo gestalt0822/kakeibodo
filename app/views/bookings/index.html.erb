@@ -7,7 +7,7 @@
       <th>金額</th><th>項目</th><th>詳細</th><th>細目</th><th>日時</th><th></th>
     </tr>
     <% @bookings_now.each do |booking| %>
-    <% unless booking.unlist == true %>
+      <% unless booking.unlist == true %>
         <tr>
           <td><%= booking.amount %>円</td>
           <td><%= booking.category.name %></td>
@@ -19,7 +19,7 @@
             <%= link_to '削除', unlist_booking_path(booking), method: :patch, class: 'btn btn-default btn-xs btn-danger' %>
           </td>
         </tr>
-     <% end %>
+       <% end %>
      <% end %>
   </table>
 
@@ -29,6 +29,7 @@
       <th>金額</th><th>項目</th><th>詳細</th><th>細目</th><th>日時</th><th></th>
     </tr>
     <% @bookings_then.each do |booking| %>
+      <% unless booking.unlist == true %>
         <tr>
           <td><%= booking.amount %>円</td>
           <td><%= booking.category.name %></td>
@@ -37,9 +38,10 @@
           <td><%= booking.date.strftime("%m月%d日") %></td>
           <td>
             <%= link_to '編集', edit_booking_path(booking), class: 'btn btn-warning btn-xs btn-primary' %>
-            <%= link_to '削除', booking_path(booking), method: :delete, class: 'btn btn-default btn-xs btn-danger' %>
+            <%= link_to '削除', unlist_booking_path(booking), method: :patch, class: 'btn btn-default btn-xs btn-danger' %>
           </td>
         </tr>
+      <% end %>
      <% end %>
   </table>
 </div>
