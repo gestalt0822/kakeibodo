@@ -224,3 +224,8 @@ padding: 10px 0px 0px 0px;
    color: #fff;
    text-align: center;
  }
+
+
+ .not_display{
+   display: none;
+ }

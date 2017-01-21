@@ -18,6 +18,7 @@ class BookingsController < ApplicationController
 
   def new
     @booking = Booking.new
+    @category = Category.new
     @categories = Category.all
     @sort = Sort.new
     @sorts = Sort.all
@@ -49,6 +50,8 @@ class BookingsController < ApplicationController
    @booking = Booking.find(params[:id])
    @category = Category.new
    @categories = Category.all
+   @sort = Sort.new
+   @sorts = Sort.all
   end
 
   def update

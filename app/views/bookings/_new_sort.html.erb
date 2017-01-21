@@ -1,4 +1,4 @@
-<%= form_for(@sort, :url => {:controller => :bookings, :action => :new_sort}) do |f| %>
+<%= form_for(@sort, url: new_sort_bookings_path) do |f| %>
  <div class="form-group">
    <%= f.label :細目名 %>
    <%= f.text_field :name, autofocus: true , class: "form-control"  %>
