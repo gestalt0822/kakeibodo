@@ -1,4 +1,4 @@
-<%= form_for(@booking) do |f| %>
+<%= form_for(@booking, :url => {:controller => :categories, :action => :create}) do |f| %>
   <div class="row basic_form">
     <div class="col-xs-6">
       <b>金額</b>
@@ -17,7 +17,11 @@
     <div class="col-xs-4">
       <b>項目</b>
       <%= f.collection_select :category_id, Category.all, :id, :name %>
-      <%= link_to '項目を追加', new_category_path %>
+      <span id="show_btn">項目を追加</span>
+      <div id="hide_area">
+        項目を入力して登録してください。
+        <%= render partial: 'categories/form' %>
+        <span id="close">閉じる</span>
     </div>
     <div id="select_sort" class="col-xs-4">
       <%= render partial: 'select_sort', locals: {sort_id: Sort.first.id} %>

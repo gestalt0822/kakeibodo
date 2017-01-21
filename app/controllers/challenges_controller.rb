@@ -5,6 +5,7 @@ class ChallengesController < ApplicationController
 
   def index
     @challenges = Challenge.all.order(created_at: :desc)
+    @challenge = Challenge.new
   end
 
   def new
