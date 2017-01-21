@@ -43,6 +43,8 @@ class BookingsController < ApplicationController
 
   def edit
    @booking = Booking.find(params[:id])
+   @category = Category.new
+   @categories = Category.all
   end
 
   def update

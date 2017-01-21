@@ -16,11 +16,12 @@
     </div>
     <div class="col-xs-4">
       <b>項目</b>
-      <%= f.collection_select :category_id, Category.all, :id, :name %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: '以下から選択' %>
     </div>
     <div id="select_sort" class="col-xs-4">
-     <%= render partial: 'select_sort', locals: {sort_id: Sort.first.id} %>
-   </div>
+      <b>細目</b>
+      <%= f.collection_select :sort_id, Sort.all, :id, :name, include_blank: '以下から選択' %>
+    </div>
   </div>
   <%= f.submit '投稿', class: 'btn btn-info btn-block btn-margin' %>
 <% end %>

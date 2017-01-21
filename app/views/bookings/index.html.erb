@@ -11,7 +11,13 @@
         <tr>
           <td><%= booking.amount %>円</td>
           <td><%= booking.category.name %></td>
-          <td><%= booking.sort.name %></td>
+          <td>
+            <% unless booking.sort_id.nil? %>
+              <%= booking.sort.name %>
+            <% else %>
+            なし
+            <% end %>
+          </td>
           <td><%= booking.detail %></td>
           <td><%= booking.date.strftime("%m月%d日") %></td>
           <td>
