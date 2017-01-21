@@ -11,12 +11,16 @@ class BookingsController < ApplicationController
     this_year = Date.today.year
     @category = Category.new
     @categories = Category.all
+    @sort = Sort.new
+    @sorts = Sort.all
   end
   #http://www.namaraii.com/rubytips/datetime/#section-7
 
   def new
-   @booking = Booking.new
-   @categories = Category.all
+    @booking = Booking.new
+    @categories = Category.all
+    @sort = Sort.new
+    @sorts = Sort.all
   end
 
 # コントローラーに書くべきでない処理はモデルに移す。
@@ -96,7 +100,6 @@ class BookingsController < ApplicationController
     def categories_params
       params.require(:category).permit(:name)
     end
-
 
     def sorts_params
       params.require(:sort).permit(:name, :category_id)

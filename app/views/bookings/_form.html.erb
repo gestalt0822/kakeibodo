@@ -26,9 +26,18 @@
   <%= f.submit '投稿', class: 'btn btn-info btn-block btn-margin' %>
 <% end %>
 
-<span id="show_btn">項目を追加</span>
-<div id="hide_area">
-  以下をご入力下さい
-  <%= render partial: 'new_category' %>
+<div style="border:1px solid #000">
+  <span id="show_btn">項目を追加</span>
+  <div id="hide_area">
+    <%= render partial: 'new_category' %>
   <span id="close">閉じる</span>
+  </div>
+</div>
+
+<div style="border:1px solid #000">
+  <span id="show_btn2">細目を追加</span>
+  <div id="hide_area2">
+    <%= render partial: 'new_sort' %>
+  <span id="close2">閉じる</span>
+  </div>
 </div>

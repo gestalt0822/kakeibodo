@@ -18,13 +18,22 @@
 // 	);
 // });
 
+		// console.log("ああああああ");
+
 
 $(document).ready(function(){
 	$("#show_btn").on("click",function(){
 		$("#hide_area").slideToggle();
-	});
+		});
   $("#close").click(function(){
     $("#hide_area").hide();
   });
+
+		$("#show_btn2").on("click",function(){
+			$("#hide_area2").slideToggle();
+			});
+	  $("#close2").click(function(){
+	    $("#hide_area2").hide();
+	  });
 
 });
