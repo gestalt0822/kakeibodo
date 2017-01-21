@@ -8,6 +8,10 @@ Rails.application.routes.draw do
     collection do
       get 'get_sorts'
     end
+    collection do
+      post 'new_category'
+      post 'new_sort'
+    end
   end
   resources :categories, only:[:index, :new ,:create, :destroy, :edit, :update]
   resources :sorts, except: :show

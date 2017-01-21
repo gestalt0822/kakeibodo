@@ -1,0 +1,7 @@
+<%= form_for(@category, url: new_category_bookings_path) do |f| %>
+  <div class="form-group">
+    <%= f.label :項目名 %>
+    <%= f.text_field :name, autofocus: true , class: "form-control" %>
+  </div>
+  <%= f.submit '登録', class: 'btn btn-info btn-block btn-margin' %>
+<% end %>

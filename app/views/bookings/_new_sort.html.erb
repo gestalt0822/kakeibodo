@@ -1,0 +1,11 @@
+<%= form_for(@sort, :url => {:controller => :bookings, :action => :new_sort}) do |f| %>
+ <div class="form-group">
+   <%= f.label :細目名 %>
+   <%= f.text_field :name, autofocus: true , class: "form-control"  %>
+ </div>
+ <div class="form-group">
+   <%= f.label :親カテゴリー %>
+   <%= f.collection_select :category_id, Category.all, :id, :name %>
+ </div>
+ <%= f.submit '登録', class: 'btn btn-info btn-block btn-margin' %>
+<% end %>

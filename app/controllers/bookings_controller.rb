@@ -4,13 +4,13 @@ class BookingsController < ApplicationController
 
   def index
     @booking = Booking.new
-    @category = Category.new
-    @categories = Category.all
     @bookings = Booking.where(user_id: current_user.id).order(date: :desc)
     @bookings_now = Booking.where(user_id: current_user.id, date: Time.now.beginning_of_month..Time.now.end_of_month).order(date: :desc)
     @bookings_then = current_user.bookings.where.not(date: Time.now.beginning_of_month..Time.now.end_of_month).order(date: :desc)
     this_month = Date.today.month
     this_year = Date.today.year
+    @category = Category.new
+    @categories = Category.all
   end
   #http://www.namaraii.com/rubytips/datetime/#section-7
 
@@ -68,6 +68,16 @@ class BookingsController < ApplicationController
     redirect_to bookings_path
   end
 
+  def new_category
+    @category = Category.create(categories_params)
+    redirect_to bookings_path
+  end
+
+  def new_sort
+    @sort = Sort.create(sorts_params)
+    redirect_to bookings_path
+  end
+
   private
     def bookings_params
       params.require(:booking).permit(:amount, :detail ,:date, :category_id, :sort_id)
@@ -79,5 +89,14 @@ class BookingsController < ApplicationController
 
     def set_booking
       @booking = Booking.find(params[:id])
+    end
+
+    def categories_params
+      params.require(:category).permit(:name)
+    end
+
+
+    def sorts_params
+      params.require(:sort).permit(:name, :category_id)
     end
 end
