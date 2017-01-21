@@ -1,6 +1,7 @@
 <div class="main_contents">
   <%= render partial: 'form' %>
 
+<div class="bookings_contents">
   <h2><%= current_user.name %>さんが今月使ったお金</h2>
   <table class="table table-bordered design-table">
     <tr class="success">
@@ -50,4 +51,5 @@
       <% end %>
      <% end %>
   </table>
+</div>
 </div>

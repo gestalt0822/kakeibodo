@@ -1,53 +1,53 @@
 <%= form_for(@booking) do |f| %>
   <div class="row basic_form">
-    <div class="col-xs-6">
-      <b>金額</b>
-      <%= f.text_field :amount, autofocus: true , class: "form-control" %>
+    <div class="col-sm-4 col-xs-6">
+      <%= f.label :金額 %><br />
+      <%= f.text_field :amount, autofocus: true, class: "form-control" %>
     </div>
-    <div class="col-xs-6">
-      <b>詳細</b>
-      <%= f.text_field :detail, autofocus: true , class: "form-control" %>
-    </div>
-  </div>
-  <div class="row basic_form">
-    <div class="col-xs-4">
-      <b>日付</b>
-      <%= f.date_select :date, use_month_numbers: true %>
+    <div class="col-sm-4 col-xs-6">
+      <%= f.label :詳細 %><br />
+      <%= f.text_field :detail, autofocus: true, class: "form-control" %>
     </div>
 
+      <div class="col-sm-4 col-xs-6">
+        <%= f.label :日付 %><br />
+        <%= f.date_select :date, use_month_numbers: true %>
+      </div>
       <div class="not_display">
-        <b>時間</b>
+        <%= f.label :時間 %>
         <%= f.time_select :date %>
       </div>
-
-    <div class="col-xs-4">
-      <b>項目</b>
+  </div>
+  <div class="row">
+    <div class="col-xs-6">
+      <%= f.label :項目 %>
       <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: '以下から選択' %>
     </div>
-    <div id="select_sort" class="col-xs-4">
-      <b>細目</b>
+    <div id="select_sort" class="col-xs-6">
+      <%= f.label :細目 %>
       <%= f.collection_select :sort_id, Sort.all, :id, :name, include_blank: '以下から選択' %>
     </div>
+    <div class="bookings_form">
+      <%= f.submit '投稿', class: 'btn btn-info btn-block btn-margin' %>
+    </div>
   </div>
-  <%= f.submit '投稿', class: 'btn btn-info btn-block btn-margin' %>
+
 <% end %>
 
-<div class="row">
-
-<div  class="col-xs-6" style="border:1px solid #000">
-  <span id="show_btn">項目を追加</span>
-  <div id="hide_area">
-    <%= render partial: 'new_category' %>
-  <span id="close">閉じる</span>
+<div class="row bookings_form2">
+  <div class="col-xs-6">
+    <span id="show_btn">項目を追加</span>
+    <div id="hide_area">
+      <%= render partial: 'new_category' %>
+      <span id="close">閉じる</span>
+    </div>
   </div>
-</div>
 
-<div  class="col-xs-6" style="border:1px solid #000">
-  <span id="show_btn2">細目を追加</span>
-  <div id="hide_area2">
-    <%= render partial: 'new_sort' %>
-  <span id="close2">閉じる</span>
+  <div  class="col-xs-6">
+    <span id="show_btn2">細目を追加</span>
+    <div id="hide_area2">
+      <%= render partial: 'new_sort' %>
+      <span id="close2">閉じる</span>
+    </div>
   </div>
-</div>
-
 </div>

@@ -18,15 +18,19 @@
   display: none;
   width: 300px;
   background-color: #fff;
+  margin-top: 15px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   position: absolute;
   z-index: 1000;
+  -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .285);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, .285);
 }
 
 #show_btn{
   color: blue;
+  padding-left: 150px;
 }
 
 #close{
@@ -39,15 +43,18 @@
   display: none;
   width: 300px;
   background-color: #fff;
+  margin-top: 15px;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   position: absolute;
-  z-index: 1000;
+  z-index: 1000;-webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+          box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
 
 #show_btn2{
   color: blue;
+  padding-left: 175px;
 }
 
 #close2{
@@ -228,4 +235,19 @@ padding: 10px 0px 0px 0px;
 
  .not_display{
    display: none;
+ }
+
+ .bookings_form{
+  padding: 0px 15px;
+  top: 30px;
+  position: relative;
+ }
+
+.bookings_form2{
+  top: -90px;
+  position: relative;
+}
+
+ .bookings_contents{
+   margin-top: 20px;
  }
