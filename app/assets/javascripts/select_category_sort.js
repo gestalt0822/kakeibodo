@@ -8,19 +8,21 @@
 // });
 
 // $(document).ready(function(){
-// 	$("#show_btn").hover(
-// 		function(){	//マウスを乗せた
+// 	$("#show_btn").click(
+// 		console.log("あああ");
+// 		function(){
 // 			$("#hide_area").show();
-// 		},
-// 		function(){	//マウスを外した
-// 			$("#hide_area").hide();
-// 		}
-// 	);
+// 		};
+//
+// 		$("#close").click(
+// 			function(){
+// 				$("#hide_area").hide();
+// 			};
 // });
 
 		// console.log("ああああああ");
 
-
+//
 $(document).ready(function(){
 	$("#show_btn").on("click",function(){
 		$("#hide_area").slideToggle();

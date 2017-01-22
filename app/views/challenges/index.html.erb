@@ -1,12 +1,6 @@
 <div class="main_contents">
   <p><span class="red"><%= notice %></span></p>
   <h2>チャレンジ一覧</h2>
-  <span id="show_btn">項目を追加</span>
-  <div id="hide_area">
-    項目を入力して登録してください。
-    <%= render partial: 'form' %>
-    <span id="close">閉じる</span>
-  </div>
   <h3>現在のチャレンジ</h3>
   <% if finish_or_continue? %>
     <div class="finished_challenge">
