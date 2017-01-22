@@ -62,6 +62,8 @@ class ChallengesController < ApplicationController
   def finish
     @challenge = Challenge.find(params[:id])
     @challenge.update(status:2)
+    @challenge.total_amount  = @challenge.moneys.sum(:amount)
+    @challenge.save
     if @challenge.total_amount <= @challenge.target#目標達成したかどうかを判定
       #基本ポイントは挑戦日数
       if @challenge.deadline.yday < @challenge.start.yday#年をまたぐ場合、チャレンジ期間に矛盾が生じないようにするための処理
