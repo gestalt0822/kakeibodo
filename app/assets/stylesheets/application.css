@@ -28,17 +28,6 @@
           box-shadow: 0 6px 12px rgba(0, 0, 0, .285);
 }
 
-#show_btn{
-  color: blue;
-  padding-left: 150px;
-}
-
-#close{
-  color: blue;
-  display: block;
-  padding-top: 10px;
-}
-
 #hide_area2{
   display: none;
   width: 300px;
@@ -52,9 +41,25 @@
           box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
 }
 
+
+#show_btn{
+  color: blue;
+  padding-left:35px;
+  text-align: right;
+  z-index: 1;
+}
+
 #show_btn2{
   color: blue;
-  padding-left: 175px;
+  padding-left:35px;
+  text-align: right;
+  z-index: 1;
+}
+
+#close{
+  color: blue;
+  display: block;
+  padding-top: 10px;
 }
 
 #close2{
@@ -62,6 +67,30 @@
   display: block;
   padding-top: 10px;
 }
+
+
+ .bookings_form{
+  padding: 0px 15px;
+  top: 30px;
+  position: relative;
+ }
+
+.bookings_form2{
+  top: -65px;
+  position: relative;
+}
+
+.bookings_form3{
+  z-index:2;
+}
+
+ .bookings_contents{
+   margin-top: 20px;
+ }
+
+
+
+
 
  /*footerを下に固定*/
 
@@ -235,19 +264,4 @@ padding: 10px 0px 0px 0px;
 
  .not_display{
    display: none;
- }
-
- .bookings_form{
-  padding: 0px 15px;
-  top: 30px;
-  position: relative;
- }
-
-.bookings_form2{
-  top: -90px;
-  position: relative;
-}
-
- .bookings_contents{
-   margin-top: 20px;
  }

@@ -21,11 +21,11 @@
   <div class="row">
     <div class="col-xs-6">
       <%= f.label :項目 %>
-      <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: '以下から選択' %>
+      <%= f.collection_select :category_id, Category.all, :id, :name, include_blank: '以下から選択', class:'bookings_form3' %>
     </div>
     <div id="select_sort" class="col-xs-6">
       <%= f.label :細目 %>
-      <%= f.collection_select :sort_id, Sort.all, :id, :name, include_blank: '以下から選択' %>
+      <%= f.collection_select :sort_id, Sort.all, :id, :name, include_blank: '以下から選択', class:'bookings_form3' %>
     </div>
     <div class="bookings_form">
       <%= f.submit '投稿', class: 'btn btn-info btn-block btn-margin' %>
@@ -43,7 +43,7 @@
     </div>
   </div>
 
-  <div  class="col-xs-6">
+  <div class="col-xs-6">
     <span id="show_btn2">細目を追加</span>
     <div id="hide_area2">
       <%= render partial: 'new_sort' %>

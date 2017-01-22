@@ -5,7 +5,7 @@
   <h2><%= current_user.name %>さんが今月使ったお金</h2>
   <table class="table table-bordered design-table">
     <tr class="success">
-      <th>金額</th><th>項目</th><th>詳細</th><th>細目</th><th>日時</th><th></th>
+      <th>金額</th><th>項目</th><th>細目</th><th>詳細</th><th>日時</th><th></th>
     </tr>
     <% @bookings_now.each do |booking| %>
       <% unless booking.unlist == true %>
@@ -33,14 +33,20 @@
   <h2><%= current_user.name %>さんが先月までに使ったお金</h2>
   <table class="table table-bordered design-table">
     <tr class="success">
-      <th>金額</th><th>項目</th><th>詳細</th><th>細目</th><th>日時</th><th></th>
+      <th>金額</th><th>項目</th><th>細目</th><th>詳細</th><th>日時</th><th></th>
     </tr>
     <% @bookings_then.each do |booking| %>
       <% unless booking.unlist == true %>
         <tr>
           <td><%= booking.amount %>円</td>
           <td><%= booking.category.name %></td>
-          <td><%= booking.sort.name %></td>
+          <td>
+            <% unless booking.sort_id.nil? %>
+              <%= booking.sort.name %>
+            <% else %>
+            なし
+            <% end %>
+          </td>
           <td><%= booking.detail %></td>
           <td><%= booking.date.strftime("%m月%d日") %></td>
           <td>
