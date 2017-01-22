@@ -265,3 +265,7 @@ padding: 10px 0px 0px 0px;
  .not_display{
    display: none;
  }
+
+ .text_center{
+   text-align: center;
+ }

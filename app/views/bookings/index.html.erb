@@ -7,6 +7,9 @@
     <tr class="success">
       <th>金額</th><th>項目</th><th>細目</th><th>詳細</th><th>日時</th><th></th>
     </tr>
+    <% if @bookings_now.count == 0 %>
+      <tr><td colspan="6"><p class="text_center">なし</p></td></tr>
+    <% end %>
     <% @bookings_now.each do |booking| %>
       <% unless booking.unlist == true %>
         <tr>
@@ -35,6 +38,9 @@
     <tr class="success">
       <th>金額</th><th>項目</th><th>細目</th><th>詳細</th><th>日時</th><th></th>
     </tr>
+    <% if @bookings_then.count == 0 %>
+      <tr><td colspan="6"><p class="text_center">なし</p></td></tr>
+    <% end %>
     <% @bookings_then.each do |booking| %>
       <% unless booking.unlist == true %>
         <tr>

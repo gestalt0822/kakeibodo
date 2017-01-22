@@ -6,6 +6,8 @@ class ChallengesController < ApplicationController
   def index
     @challenges = Challenge.all.order(created_at: :desc)
     @challenge = Challenge.new
+    @challenge_now = Challenge.where(user_id: current_user.id, status:1)
+    @challenge_then = Challenge.where(user_id: current_user.id, status:2)
   end
 
   def new

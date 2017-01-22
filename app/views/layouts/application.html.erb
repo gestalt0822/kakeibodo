@@ -17,8 +17,7 @@
     </button>
     <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
       <% if user_signed_in? %>
-        <li><%= link_to '一覧', bookings_path %></li>
-        <li><%= link_to '新規入力', new_booking_path %></li>
+        <li><%= link_to '一覧・新規入力', bookings_path %></li>
         <li><%= link_to 'チャレンジ一覧', challenges_path %></li>
         <li><%= link_to '新チャレンジ', new_challenge_path %></li>
         <li><%= link_to '集計', analyses_path %><li>
