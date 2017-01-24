@@ -13,11 +13,15 @@
 </head>
 <body>
 
+<div id="wrap">
 <header>
   <div class="row">
     <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-      <div id="main_title" class="col-sm-4 col-xs-6">
+      <div id="main_title" class="col-sm-4 hidden-xs">
         <%= link_to root_path do %><%= image_tag 'logo.jpg' %><% end %>
+      </div>
+      <div id="main_title" class="col-xs-6 visible-xs">
+        <%= link_to root_path do %><%= image_tag 'logo_mini.jpg' %><% end %>
       </div>
       <div class="col-xs-6 visible-xs">
         <div class="dropdown">
@@ -81,6 +85,8 @@
   <p>運営： 株式会社AokiEngineering<br />
   © 2016-2017 Copyright AokiEngineering Corp</p>
 </footer>
+
+</div>
 
 </body>
 </html>
