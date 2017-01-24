@@ -2,6 +2,8 @@
 <html>
 <head>
   <title>Kakeibodo</title>
+  <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -27,8 +29,9 @@
               <li><%= link_to '集計', analyses_path %><li>
               <li><%= link_to 'マイページ', user_path(current_user) %></li>
               <li role="separator" class="divider"></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
               <li><%= link_to 'ユーザー情報編集', edit_user_registration_path %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to 'トップページ', root_path %></li>
             <% else %>
               <li><%= link_to 'ログイン', new_user_session_path %></li>
               <li><%= link_to '新規登録', new_user_registration_path %></li>
@@ -52,8 +55,9 @@
             </button>
             <ul class="dropdown-menu">
               <% if user_signed_in? %>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
               <li><%= link_to 'ユーザー情報編集', edit_user_registration_path %></li>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to 'トップページ', root_path %></li>
             <% else %>
               <li><%= link_to 'ログイン', new_user_session_path %></li>
               <li><%= link_to '新規登録', new_user_registration_path %></li>
