@@ -1,5 +1,6 @@
 class AnalysesController < ApplicationController
  def index
+   @challenge_now = Challenge.where(user_id: current_user.id, status:1)
    @categories_now = current_user.bookings.where.not(unlist: true).where(date: Time.now.beginning_of_month..Time.now.end_of_month).select(:category_id).distinct#該当ユーザの家計簿のcategory_idを重複なしで配列に
    @amounts_now = Array.new
    num = 0

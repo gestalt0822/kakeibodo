@@ -2,6 +2,9 @@
   <h2><%= current_user.name %>さんの集計(今月)</h2>
   <table class="table table-bordered design-table">
     <tr class="success"><th>項目</th><th>金額</th><th>割合</th></tr>
+    <% if @challenge_now.count == 0 %>
+      <tr><td colspan="3"><p class="text_center">なし</p></td></tr>
+    <% end %>
     <% @amounts_now.each do |elm1, elm2, elm3| %>
       <tr>
         <td><%= elm1 %></td><td><%= elm2 %>円</td><td><%= elm3 %>％</td>
@@ -12,6 +15,9 @@
   <h2><%= current_user.name %>さんの集計(先月まで)</h2>
   <table class="table table-bordered design-table">
     <tr class="success"><th>項目</th><th>金額</th><th>割合</th></tr>
+    <% if @challenge_now.count == 0 %>
+      <tr><td colspan="3"><p class="text_center">なし</p></td></tr>
+    <% end %>
       <% @amounts_then.each do |elm1, elm2, elm3| %>
         <tr>
           <td><%= elm1 %></td><td><%= elm2 %>円</td><td><%= elm3 %>％</td>

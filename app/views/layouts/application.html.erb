@@ -23,8 +23,7 @@
           <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
             <% if user_signed_in? %>
               <li><%= link_to '一覧・新規入力', bookings_path %></li>
-              <li><%= link_to 'チャレンジ一覧', challenges_path %></li>
-              <li><%= link_to '新チャレンジ', new_challenge_path %></li>
+              <li><%= link_to 'チャレンジ', challenges_path %></li>
               <li><%= link_to '集計', analyses_path %><li>
               <li><%= link_to 'マイページ', user_path(current_user) %></li>
               <li role="separator" class="divider"></li>
@@ -38,14 +37,30 @@
         </div>
       </div>
       <div class="col-sm-8 hidden-xs" id="main_menu">
-        <ul>
+        <ul id="left_menu">
           <% if user_signed_in? %>
             <li><%= link_to '一覧・入力', bookings_path %></li>
-            <li><%= link_to 'チャレンジ一覧', challenges_path %></li>
-            <li><%= link_to '新チャレンジ', new_challenge_path %></li>
+            <li><%= link_to 'チャレンジ一', challenges_path %></li>
             <li><%= link_to '集計', analyses_path %><li>
             <li><%= link_to 'マイページ', user_path(current_user) %></li>
           <% end %>
+        </ul>
+        <div id="right_menu">
+          <div class="btn-group">
+            <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              dropdown <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu">
+              <% if user_signed_in? %>
+              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+              <li><%= link_to 'ユーザー情報編集', edit_user_registration_path %></li>
+            <% else %>
+              <li><%= link_to 'ログイン', new_user_session_path %></li>
+              <li><%= link_to '新規登録', new_user_registration_path %></li>
+            <% end %>
+            </ul>
+          </div>
+        </div>
       </div>
     </div>
   </div>

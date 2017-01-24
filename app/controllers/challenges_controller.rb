@@ -12,9 +12,6 @@ class ChallengesController < ApplicationController
 
   def new
     @challenge = Challenge.new
-    if Challenge.find_by(status:1, user_id:current_user.id)
-      redirect_to challenges_path, notice: "同時に複数のチャレンジを行うことはできません！既存のチャレンジ終了後に行って下さい。"
-    end
   end
 
   def create
