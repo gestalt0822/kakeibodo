@@ -1,5 +1,5 @@
 <%= form_for(@challenge) do |f| %>
-<div class="row basic_form">
+
   <div class="col-sm-5 col-xs-12">
     <%= f.label :最終日 %>
     <%= f.date_select :deadline, use_month_numbers: true %>
@@ -11,4 +11,5 @@
   <div class="col-sm-2 col-xs-12">
     <%= f.submit '決定', class: 'btn btn-info btn-sm btn-margin' %>
   </div>
+
 <% end %>

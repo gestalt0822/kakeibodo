@@ -4,6 +4,8 @@
   <title>Kakeibodo</title>
   <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />
   <link href="https://fonts.googleapis.com/earlyaccess/sawarabimincho.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/earlyaccess/notosansjapanese.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/earlyaccess/mplus1p.css" rel="stylesheet" />
   <%= stylesheet_link_tag    'application', media: 'all' %>
   <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
@@ -43,7 +45,7 @@
         <ul id="left_menu">
           <% if user_signed_in? %>
             <li><%= link_to '一覧・入力', bookings_path %></li>
-            <li><%= link_to 'チャレンジ一', challenges_path %></li>
+            <li><%= link_to 'チャレンジ', challenges_path %></li>
             <li><%= link_to '集計', analyses_path %><li>
             <li><%= link_to 'マイページ', user_path(current_user) %></li>
           <% end %>

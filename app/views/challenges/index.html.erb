@@ -1,8 +1,10 @@
 <div class="main_contents">
   <h2>チャレンジ</h2>
   <% unless Challenge.find_by(status:1, user_id:current_user.id) %>
+    <h3>新規チャレンジ</h3>
     <%= render partial: 'form' %>
   <% end %>
+
   <h3>現在のチャレンジ</h3>
   <% if finish_or_continue? %>
     <div class="finished_challenge">
@@ -58,6 +60,7 @@
       <% end %>
     <% end %>
   </table>
+
   <div class="links">
     <%= link_to '戻る', :back %>
   </div>

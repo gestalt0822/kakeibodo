@@ -16,6 +16,8 @@
 
 .wf-roundedmplus1c { font-family: "Rounded Mplus 1c"; }
 .wf-sawarabimincho { font-family: "Sawarabi Mincho"; }
+.wf-notosansjapanese { font-family: "Noto Sans Japanese"; }
+.wf-mplus1p { font-family: "Mplus 1p"; }
 
 #hide_area{
   display: none;
@@ -141,13 +143,16 @@ body{
  }
  h2{
    color: #22ac38;
-   margin: 10px 0px 20px 0px;
-   text-align: center;
+   margin: 20px 0px 20px 0px;
+   padding-left: 40px;
    font-family: "Rounded Mplus 1c";
+   background-image: url("wallet.png");
+   background-repeat: no-repeat;
  }
 
  h3{
    font-family: "Rounded Mplus 1c";
+   padding: 0px 0px 10px 0px;
 
  }
 
@@ -275,6 +280,7 @@ ul.user_detail{
 .point{
   font-size: 15px;
   font-weight: bold;
+  font-family: "wf-mplus1p";
   color: orange;
 }
 
@@ -293,6 +299,7 @@ padding: 10px 0px 0px 0px;
 .message{
   color:blue;
   font-style:oblique;
+  font-size: 20px;
 }
 
 .messenger{
