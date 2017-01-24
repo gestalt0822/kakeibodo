@@ -113,7 +113,7 @@ h2{
   }
 
    #contents{
-     padding-bottom: 100px;
+     padding-bottom: 80px;
    }
 
    /*コンテンツ部分は基本的にこれで囲む*/
@@ -245,8 +245,12 @@ ul.user_detail{
   color: red;
 }
 
+.list_info{
+  margin: 0px 0px 30px 0px;
+}
+
 .list_info li{
-padding: 10px 0px 0px 0px;
+  padding: 10px 0px 0px 0px;
 }
 
 /*名言*/
@@ -276,11 +280,11 @@ padding: 10px 0px 0px 0px;
 
  footer{
    width: 100%;
-   height: 100px;
+   height: 80px;
    background-color: #0c3;
    position: absolute;
    bottom: 0;
-   padding: 30px 0px 5px 0px;
+   padding: 20px 0px 5px 0px;
    margin: auto;
    font-size: 12px;
    color: #fff;
