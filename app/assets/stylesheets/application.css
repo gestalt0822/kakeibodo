@@ -24,8 +24,8 @@
 /*footerを下に固定*/
 
 html {
- position: relative;
- min-height: 100%;
+  position: relative;
+  min-height: 100%;
 }
 
 body{
@@ -33,97 +33,98 @@ body{
 }
 
 ul {
-   list-style-type: none;
+  list-style-type: none;
  }
 
 h2{
-   color: #22ac38;
-   margin: 20px 0px 20px 0px;
-   padding-left: 40px;
-   font-family: "Rounded Mplus 1c";
-   background-image: url("wallet.png");
-   background-repeat: no-repeat;
+  color: #22ac38;
+  margin: 20px 0px 20px 0px;
+  padding-left: 40px;
+  font-family: "Rounded Mplus 1c";
+  background-image: url("wallet.png");
+  background-repeat: no-repeat;
  }
 
- h3{
-   font-family: "Rounded Mplus 1c";
-   padding: 0px 0px 10px 0px;
+h3{
+  font-family: "Rounded Mplus 1c";
+  padding: 0px 0px 10px 0px;
  }
 
- a{
+a{
   color: #59493f;
  }
 
- td{background-color: #fff;
+ td{
+  background-color: #fff;
  }
 
  header{
-    width: 100%;
-    height: 115px;
-    margin: 0px;
-    padding: 0px;
-    background-color: #D2BFA7;
-    border-bottom: 7px solid #fff;
-    box-shadow:2px 2px 8px 0px #c7c3b1;
+  width: 100%;
+  height: 115px;
+  margin: 0px;
+  padding: 0px;
+  background-color: #D2BFA7;
+  border-bottom: 7px solid #fff;
+  box-shadow:2px 2px 8px 0px #c7c3b1;
   }
 
-  #main_title{
-    padding: 15px 0px 0px 0px;
-    margin: 0px ;
-    float: left;
-    height: 115px;
+#main_title{
+  padding: 15px 0px 0px 0px;
+  margin: 0px ;
+  float: left;
+  height: 115px;
   }
 
   /* dropdawnmenuを囲むdiv*/
 
-   .dropdown{
-    padding: 35px 55px 0px 0px;
-    float: right;
+.dropdown{
+  padding: 35px 55px 0px 0px;
+  float: right;
    }
 
-  #main_menu{
-    height: 115px;
-    padding: 40px 0px 0px 0px ;
-    color: #59493f;
+#main_menu{
+  height: 115px;
+  padding: 40px 0px 0px 0px ;
+  color: #59493f;
   }
 
-  #main_menu ul{
-    margin: 0px;
-    padding: 0px 0px 0px 0px;
+#main_menu ul{
+  margin: 0px;
+  padding: 0px 0px 0px 0px;
   }
 
-  #main_menu a{
-    color: #59493f;
+#main_menu a{
+  color: #59493f;
   }
 
-  #left_menu li{
-    font-family: "Rounded Mplus 1c";
-    padding-left: 15px;
-    float: left;
+#left_menu li{
+  font-family: "Rounded Mplus 1c";
+  padding-left: 15px;
+  float: left;
   }
 
-  #right_menu{
-    margin: 0px;
-    padding:0px 10px 0px 0px;
-    float: right;
+#right_menu{
+  margin: 0px;
+  padding:0px 10px 0px 0px;
+  float: right;
   }
 
-  #right_menu li{
-    padding: 0px;
+#right_menu li{
+  padding: 0px;
   }
 
-   #contents{
-     padding-bottom: 80px;
-   }
+#contents{
+  padding-bottom: 80px;
+  }
 
-   /*コンテンツ部分は基本的にこれで囲む*/
+/*コンテンツ部分は基本的にこれで囲む*/
 
-  .main_contents{
-    background-color: #fffcec;
-    margin: 30px 0px;
-    padding: 20px;
-    border: 8px solid #fff;
-    box-shadow:2px 2px 6px 3px #c7c3b1;
+.main_contents{
+  background-color: #fffcec;
+  margin: 30px 0px;
+  padding: 20px;
+  border: 8px solid #fff;
+  box-shadow:2px 2px 6px 3px #c7c3b1;
   }
 
 /*項目・細目の追加(jQuery)*/
@@ -160,24 +161,22 @@ form_forの中に、これらのボタンを含めると機能しないので
 form_forの外にあるのにもかかわらず強引に投稿ボタンより上に動かしている。
 */
 
- .bookings_form{
+.bookings_form{
   padding: 0px 15px;
   top: 30px;
   position: relative;
  }
 
- .bookings_form2{
+.bookings_form2{
    top: -65px;
    position: relative;
 }
 
 /*上記理由により、bookingsのコンテンツ部分は下にずらす必要あり*/
 
- .bookings_contents{
+.bookings_contents{
    margin-top: 20px;
  }
-
-
 
 /* ボタンのマージン*/
 
@@ -186,6 +185,7 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
 }
 
 /* 入力フォームの横幅を小さく*/
+
 .basic_form{
   padding: 0px 0px 20px 0px;
 }
@@ -268,7 +268,6 @@ ul.user_detail{
   font-style:oblique;
 }
 
-
 /*戻るボタンなどの文字リンク*/
 
 .links{
@@ -278,54 +277,32 @@ ul.user_detail{
 
 /*フッター、下部に固定*/
 
- footer{
-   width: 100%;
-   height: 80px;
-   background-color: #0c3;
-   position: absolute;
-   bottom: 0;
-   padding: 20px 0px 5px 0px;
-   margin: auto;
-   font-size: 12px;
-   color: #fff;
-   text-align: center;
-   background-color: #D2BFA7;
-   border-top: 7px solid #fff;
-   box-shadow:2px 2px 6px 2px #c7c3b1;
+footer{
+  width: 100%;
+  height: 80px;
+  background-color: #0c3;
+  position: absolute;
+  bottom: 0;
+  padding: 20px 0px 5px 0px;
+  margin: auto;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  background-color: #D2BFA7;
+  border-top: 7px solid #fff;
+  box-shadow:2px 2px 6px 2px #c7c3b1;
  }
 
 /*その他*/
 
- .not_display{
-   display: none;
+.not_display{
+  display: none;
  }
 
- .text_center{
-   text-align: center;
+.text_center{
+  text-align: center;
  }
 
- .red{
-   color: red;
+.red{
+  color: red;
  }
-
-
-
-  /*h1{
-    margin :0px;
-    padding: 0px;
-  }
-
-  h1 a{
-     color: #fff;
-     text-decoration: none;
-  }
-
-  h1 a:hover{
-     color: #fff;
-     text-decoration: none;
-  }*/
-
-
- /*.bookings_form3{
-   z-index:2;
- }*/
