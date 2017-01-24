@@ -1,5 +1,5 @@
 <div class="main_contents">
-  <h2><%= current_user.name %>さんの集計(今月)</h2>
+  <h2>集計(今月)</h2>
   <table class="table table-bordered design-table">
     <tr class="success"><th>項目</th><th>金額</th><th>割合</th></tr>
     <% if @amounts_now.count == 0 %>
@@ -12,7 +12,7 @@
     <% end %>
   </table>
 
-  <h2><%= current_user.name %>さんの集計(先月まで)</h2>
+  <h2>集計(先月まで)</h2>
   <table class="table table-bordered design-table">
     <tr class="success"><th>項目</th><th>金額</th><th>割合</th></tr>
     <% if @amounts_then.count == 0 %>
