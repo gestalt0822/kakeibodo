@@ -61,6 +61,10 @@ a{
   background-color: #fff;
  }
 
+ #wrap{
+   overflow: hidden;
+ }
+
  header{
   width: 100%;
   height: 115px;
