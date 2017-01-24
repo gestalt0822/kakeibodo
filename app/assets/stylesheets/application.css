@@ -105,7 +105,7 @@ body{
 
  header{
    width: 100%;
-   height: 135px;
+   height: 115px;
    margin: 0px;
    padding: 0px;
    background-color: #D2BFA7;
@@ -114,16 +114,15 @@ body{
  }
 
 #main_title{
-  width: 300px;
-  color: #fff;
-  padding: 10px 0px 0px 60px;
+  padding: 15px 0px 0px 0px;
   margin: 0px ;
   float: left;
 }
+
 /* dropdawnmenuを囲むdiv*/
 
  .dropdown{
-  padding: 45px 80px 0px 0px;
+  padding: 35px 55px 0px 0px;
   float: right;
  }
 
@@ -136,6 +135,30 @@ body{
    text-align: center;
  }
 
+
+#main_menu{
+  padding: 45px 0px 0px 0px ;
+  color: #59493f;
+}
+
+#main_menu ul{
+  margin: 0px;
+  padding: 0px;
+}
+
+#main_menu li{
+  padding-right: 10px;
+  float: left;
+}
+
+#main_menu a{
+  color: #59493f;
+}
+ /*h1{
+   margin :0px;
+   padding: 0px;
+ }
+
  h1 a{
     color: #fff;
     text-decoration: none;
@@ -144,20 +167,20 @@ body{
  h1 a:hover{
     color: #fff;
     text-decoration: none;
- }
+ }*/
 
  td{background-color: #fff;
  }
 
  #contents{
-   padding-bottom: 125px;
+   padding-bottom: 100px;
  }
 
  /*コンテンツ部分は基本的にこれで囲む*/
 
 .main_contents{
   background-color: #fffcec;
-  margin: 20px 0px;
+  margin: 30px 0px;
   padding: 20px;
   border: 8px solid #fff;
   box-shadow:2px 2px 6px 3px #c7c3b1;
