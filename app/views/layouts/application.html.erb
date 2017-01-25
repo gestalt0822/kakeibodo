@@ -14,77 +14,76 @@
 <body>
 
 <div id="wrap">
-<header>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
-      <div id="main_title" class="col-sm-4 hidden-xs">
-        <%= link_to root_path do %><%= image_tag 'logo.jpg' %><% end %>
-      </div>
-      <div id="main_title" class="col-xs-6 visible-xs">
-        <%= link_to root_path do %><%= image_tag 'logo_mini.jpg' %><% end %>
-      </div>
-      <div class="col-xs-6 visible-xs">
-        <div class="dropdown">
-          <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-           Dropdown
-          <span class="caret"></span>
-          </button>
-          <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+  <header>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
+        <div id="main_title" class="col-sm-4 hidden-xs">
+          <%= link_to root_path do %><%= image_tag 'logo.jpg' %><% end %>
+        </div>
+        <div id="main_title" class="col-xs-6 visible-xs">
+          <%= link_to root_path do %><%= image_tag 'logo_mini.jpg' %><% end %>
+        </div>
+        <div class="col-xs-6 visible-xs">
+          <div class="dropdown">
+            <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+             Dropdown
+            <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <% if user_signed_in? %>
+                <li><%= link_to '一覧・新規入力', bookings_path %></li>
+                <li><%= link_to 'チャレンジ', challenges_path %></li>
+                <li><%= link_to '集計', analyses_path %><li>
+                <li><%= link_to 'マイページ', user_path(current_user) %></li>
+                <li role="separator" class="divider"></li>
+                <li><%= link_to 'ユーザー情報編集', edit_user_registration_path %></li>
+                <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                <li><%= link_to 'トップページ', root_path %></li>
+              <% else %>
+                <li><%= link_to 'ログイン', new_user_session_path %></li>
+                <li><%= link_to '新規登録', new_user_registration_path %></li>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+        <div class="col-sm-8 hidden-xs" id="main_menu">
+          <ul id="left_menu">
             <% if user_signed_in? %>
-              <li><%= link_to '一覧・新規入力', bookings_path %></li>
+              <li><%= link_to '一覧・入力', bookings_path %></li>
               <li><%= link_to 'チャレンジ', challenges_path %></li>
               <li><%= link_to '集計', analyses_path %><li>
               <li><%= link_to 'マイページ', user_path(current_user) %></li>
-              <li role="separator" class="divider"></li>
-              <li><%= link_to 'ユーザー情報編集', edit_user_registration_path %></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-              <li><%= link_to 'トップページ', root_path %></li>
-            <% else %>
-              <li><%= link_to 'ログイン', new_user_session_path %></li>
-              <li><%= link_to '新規登録', new_user_registration_path %></li>
             <% end %>
           </ul>
-        </div>
-      </div>
-      <div class="col-sm-8 hidden-xs" id="main_menu">
-        <ul id="left_menu">
-          <% if user_signed_in? %>
-            <li><%= link_to '一覧・入力', bookings_path %></li>
-            <li><%= link_to 'チャレンジ', challenges_path %></li>
-            <li><%= link_to '集計', analyses_path %><li>
-            <li><%= link_to 'マイページ', user_path(current_user) %></li>
-          <% end %>
-        </ul>
-        <div id="right_menu">
-          <div class="btn-group">
-            <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              dropdown <span class="caret"></span>
-            </button>
-            <ul class="dropdown-menu">
-              <% if user_signed_in? %>
-              <li><%= link_to 'ユーザー情報編集', edit_user_registration_path %></li>
-              <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
-              <li><%= link_to 'トップページ', root_path %></li>
-            <% else %>
-              <li><%= link_to 'ログイン', new_user_session_path %></li>
-              <li><%= link_to '新規登録', new_user_registration_path %></li>
-            <% end %>
-            </ul>
+          <div id="right_menu">
+            <div class="btn-group">
+              <button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                dropdown <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu">
+                <% if user_signed_in? %>
+                  <li><%= link_to 'ユーザー情報編集', edit_user_registration_path %></li>
+                  <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+                  <li><%= link_to 'トップページ', root_path %></li>
+                <% else %>
+                  <li><%= link_to 'ログイン', new_user_session_path %></li>
+                  <li><%= link_to '新規登録', new_user_registration_path %></li>
+                <% end %>
+              </ul>
+            </div>
           </div>
         </div>
       </div>
     </div>
+  </header>
+  <div id="contents" class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
+    <%= yield %>
   </div>
-</header>
 
-<div id="contents" class="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 col-xs-12">
-  <%= yield %>
-</div>
-
-<footer>
-  <p>運営： 株式会社AokiEngineering<br />
-  © 2016-2017 Copyright AokiEngineering Corp</p>
-</footer>
+  <footer>
+    <p>運営： 株式会社AokiEngineering<br />
+    © 2016-2017 Copyright AokiEngineering Corp</p>
+  </footer>
 </div>
 
 </body>

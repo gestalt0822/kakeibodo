@@ -14,7 +14,10 @@
       <% unless booking.unlist == true %>
         <tr>
           <td><%= booking.amount %>円</td>
-          <td><%= booking.category.name %></td>
+          <td>
+            <% unless booking.category_id.nil? %>
+              <%= booking.category.name %></td>
+            <% end %>
           <td>
             <% unless booking.sort_id.nil? %>
               <%= booking.sort.name %>

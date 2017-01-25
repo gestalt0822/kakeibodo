@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root 'bookings#index'
   devise_for :users
-  resources :bookings, except: :show  do
+  resources :bookings, except:[:show, :destroy]  do
     member do
       patch :unlist
     end
