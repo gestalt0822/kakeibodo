@@ -42,7 +42,6 @@ class ChallengesController < ApplicationController
 
   def finish
     @challenge.update(status:2, total_amount:@challenge.moneys.sum(:amount))
-
     if @challenge.total_amount <= @challenge.target#目標達成したかどうかを判定
       @duration_point = @challenge.calculate_duration_point#チャレンジ期間を判定
       @amount_point = @challenge.calculate_amount_point#余裕率を計算(challenge.rb)
