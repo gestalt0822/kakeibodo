@@ -7,7 +7,13 @@
     <% @challenges.each do |challenge| %>
     <tr>
       <td><%= challenge.booking.amount %>円</td>
-      <td><%= challenge.booking.category.name %></td>
+      <td>
+        <% unless challenge.booking.category_id.nil? %>
+          <%= challenge.booking.category.name %>
+        <% else %>
+        　なし
+        <% end %>
+      </td>
       <td>
         <% unless challenge.booking.sort_id.nil? %>
           <%= challenge.booking.sort.name %>
@@ -15,7 +21,8 @@
           なし
         <% end %>
       </td>
-      <td><%= challenge.booking.detail %></td>
+      <td>
+        <%= challenge.booking.detail %></td>
       <td><%= challenge.booking.date.strftime("%m月%d日") %></td>
     </tr>
     <% end %>

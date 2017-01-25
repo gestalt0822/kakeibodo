@@ -1,7 +1,5 @@
 class ChallengesController < ApplicationController
-  #のちにモデルに移す(challenge.rb)
-  #データベースに値を記憶するロジックを記述
-  #http://qiita.com/regonn/items/4de94c5879cd65829a76
+  before_action :set_challenge, only: [:edit, :update, :show, :finish]
 
   def index
     @challenges = Challenge.all.order(created_at: :desc)
@@ -16,42 +14,35 @@ class ChallengesController < ApplicationController
 
   def create
     @challenge = Challenge.new(challenges_params)
-    @challenge.total_amount = 0
-    @challenge.score = 0
-    @challenge.user_id = current_user.id
-    @challenge.start = Date.today
-    #@challenge.save(total_amount, ...)でリファクタ
+    @challenge.attributes = {total_amount:0, score:0, user_id:current_user.id, start:Date.today}
     @challenge.save
     redirect_to challenges_path
   end
 
   def edit
-    @challenge = Challenge.find(params[:id])
   end
 
   def update
-    @challenge = Challenge.find(params[:id])
     @challenge.update(challenges_params)
     redirect_to challenges_path
   end
 
   def show
-    @challenge = Challenge.find(params[:id])
     @challenges = @challenge.challenge_lists
 
-      #基本ポイントは挑戦日数
-      if @challenge.deadline.yday < @challenge.start.yday#年をまたぐ場合、チャレンジ期間に矛盾が生じないようにするための処理
-        @duration_point = (@challenge.deadline.yday + 365) - @challenge.start.yday
-      else
-        @duration_point = @challenge.deadline.yday - @challenge.start.yday#チャレンジ期間を判定
-      end
-      @amount_point = @challenge.total_amount.to_f/@challenge.target.to_f#パーセントを小数点で表す(例).10%なら0.1
-      @amount_point *= 100
-      @amount_point = 100 - @amount_point
-      @amount_point /= 100#余裕率を小数点で表す(10%なら0.1)
-      #基本ポイントX余裕率のボーナス(例).基本ポイント30で余裕率10%なら33ポイント
-      @amount_bonus = @duration_point * @amount_point #期間のボーナス、
-      @total_score = @duration_point + @amount_bonus
+    #基本ポイントは挑戦日数
+    if @challenge.deadline.yday < @challenge.start.yday#年をまたぐ場合、チャレンジ期間に矛盾が生じないようにするための処理
+      @duration_point = (@challenge.deadline.yday + 365) - @challenge.start.yday
+    else
+      @duration_point = @challenge.deadline.yday - @challenge.start.yday#チャレンジ期間を判定
+    end
+    @amount_point = @challenge.total_amount.to_f/@challenge.target.to_f#パーセントを小数点で表す(例).10%なら0.1
+    @amount_point *= 100
+    @amount_point = 100 - @amount_point
+    @amount_point /= 100#余裕率を小数点で表す(10%なら0.1)
+    #基本ポイントX余裕率のボーナス(例).基本ポイント30で余裕率10%なら33ポイント
+    @amount_bonus = @duration_point * @amount_point #期間のボーナス、
+    @total_score = @duration_point + @amount_bonus
   end
 
   #集計結果をusersテーブルのpointsカラムに追加
@@ -59,7 +50,6 @@ class ChallengesController < ApplicationController
   #過去のチャレンジ一覧にポイントも記載
 
   def finish
-    @challenge = Challenge.find(params[:id])
     @challenge.update(status:2)
     @challenge.total_amount  = @challenge.moneys.sum(:amount)
     @challenge.save
@@ -98,5 +88,9 @@ class ChallengesController < ApplicationController
   private
     def challenges_params
       params.require(:challenge).permit(:deadline, :target)
+    end
+
+    def set_challenge
+      @challenge = Challenge.find(params[:id])
     end
 end
