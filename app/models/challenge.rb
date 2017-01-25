@@ -18,4 +18,9 @@ class Challenge < ActiveRecord::Base
       duration_point = self.deadline.yday - self.start.yday#チャレンジ期間を判定
     end
   end
+
+  def finish_challenge
+    if self.total_amount <= self.target
+    end
+  end
 end
