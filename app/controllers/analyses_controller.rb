@@ -1,5 +1,6 @@
 class AnalysesController < ApplicationController
  def index
+
    @categories_now = current_user.bookings.listed.this_month.select(:category_id).distinct
    #該当ユーザの家計簿のcategory_idを重複なしで配列に
 
