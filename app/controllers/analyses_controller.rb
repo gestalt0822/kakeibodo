@@ -45,7 +45,7 @@ class AnalysesController < ApplicationController
      while num < categories.count do
        each_amount = Array.new
        each_amount << Category.find(categories[num].category_id).name
-       each_amount << current_user.bookings.listed.where(category_id: categories[num].category_id).sum(:amount)
+       each_amount << current_user.bookings.listed.where(category_id: categories[num].category_id).except_this_month.sum(:amount)
        each_amount << (current_user.bookings.listed.where(category_id: categories[num].category_id).except_this_month.sum(:amount).to_f/current_user.bookings.where(unlist: false).except_this_month.sum(:amount).to_f*100).round(1)
        amounts_then << each_amount
        num += 1
@@ -61,12 +61,12 @@ class AnalysesController < ApplicationController
      while num < categories.count do
        each_amount = Array.new
        each_amount << Category.find(categories[num].category_id).name
-       each_amount << current_user.bookings.listed.where(category_id: categories[num].category_id).sum(:amount)
+       each_amount << current_user.bookings.listed.where(category_id: categories[num].category_id).except_this_month.sum(:amount)
        amounts_then << each_amount
        num += 1
      end
      return amounts_then
    end
-   @grahp_then = graph_then(@categories_then)
+   @graph_then = graph_then(@categories_then)
   end
 end
