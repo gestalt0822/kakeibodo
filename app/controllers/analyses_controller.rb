@@ -1,8 +1,5 @@
 class AnalysesController < ApplicationController
  def index
-
-   @chart_data = [["食費", 30000], ["交通費", 10000]]
-
    @categories_now = current_user.bookings.listed.this_month.select(:category_id).distinct
    #該当ユーザの家計簿のcategory_idを重複なしで配列に
 
@@ -13,7 +10,7 @@ class AnalysesController < ApplicationController
        each_amount = Array.new
        each_amount << Category.find(categories[num].category_id).name#カテゴリー名
        each_amount << current_user.bookings.listed.where(category_id:categories[num].category_id).this_month.sum(:amount)#金額
-       each_amount << (current_user.bookings.listed.where(category_id:categories[num].category_id).this_month.sum(:amount).to_f/current_user.bookings.where(unlist:false).this_month.sum(:amount).to_f*100).round(1)
+       each_amount << (current_user.bookings.listed.where(category_id:categories[num].category_id).this_month.sum(:amount).to_f/current_user.bookings.listed.this_month.sum(:amount).to_f*100).round(1)
        amounts_now << each_amount
        num += 1
      end
@@ -56,5 +53,6 @@ class AnalysesController < ApplicationController
 
    @amounts_then = amounts_then(@categories_then)
    #except_this_monthはbookings.rbを参照
+
   end
 end

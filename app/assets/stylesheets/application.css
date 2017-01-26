@@ -213,6 +213,12 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
   border: 2px solid #ddd;
 }
 
+.graph{
+  border: 2px solid #ddd;
+  margin: 0px;
+  padding: 0px;
+}
+
 /* ユーザー一覧ページ*/
 
 .each_user{
