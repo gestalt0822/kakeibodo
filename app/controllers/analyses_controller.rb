@@ -1,6 +1,8 @@
 class AnalysesController < ApplicationController
  def index
 
+   @chart_data = [["食費", 30000], ["交通費", 10000]]
+
    @categories_now = current_user.bookings.listed.this_month.select(:category_id).distinct
    #該当ユーザの家計簿のcategory_idを重複なしで配列に
 
@@ -10,7 +12,7 @@ class AnalysesController < ApplicationController
      while num < categories.count do
        each_amount = Array.new
        each_amount << Category.find(categories[num].category_id).name#カテゴリー名
-       each_amount << current_user.bookings.listed.where(category_id:categories[num].category_id).sum(:amount)#金額
+       each_amount << current_user.bookings.listed.where(category_id:categories[num].category_id).this_month.sum(:amount)#金額
        each_amount << (current_user.bookings.listed.where(category_id:categories[num].category_id).this_month.sum(:amount).to_f/current_user.bookings.where(unlist:false).this_month.sum(:amount).to_f*100).round(1)
        amounts_now << each_amount
        num += 1
@@ -18,6 +20,21 @@ class AnalysesController < ApplicationController
      return amounts_now
    end
    @amounts_now = amounts_now(@categories_now)
+
+   def graph_now(categories)
+     amounts_now = Array.new
+     num = 0
+     while num < categories.count do
+       each_amount = Array.new
+       each_amount << Category.find(categories[num].category_id).name#カテゴリー名
+       each_amount << current_user.bookings.listed.where(category_id:categories[num].category_id).this_month.sum(:amount)#金額
+       amounts_now << each_amount
+       num += 1
+     end
+     return amounts_now
+   end
+
+   @graph_now = graph_now(@categories_now)
 
    @categories_then = current_user.bookings.listed.except_this_month.select(:category_id).distinct
    #該当ユーザの家計簿のcategory_idを重複なしで配列に
