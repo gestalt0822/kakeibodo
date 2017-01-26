@@ -14,10 +14,10 @@ class UsersController < ApplicationController
     i = 1
 
     while i < 10 do
-      if Ranking.find(i).threshold > @your_score
+      if Ranking.find(i).threshold >= @your_score
         @ranking = Ranking.find(i).name
         @next_rank = Ranking.find(i+1).name
-        @score_difference = Ranking.find(i).threshold - @your_score
+        @score_difference = (Ranking.find(i).threshold - @your_score).round(2)
         @message = Message.find(i).content
         @messenger = Message.find(i).messenger
         break
@@ -26,10 +26,12 @@ class UsersController < ApplicationController
       end
     end
 
-    if Ranking.find(10).threshold <= @your_score
+    if Ranking.find(10).threshold < @your_score
       @ranking = "ランク外"
       @next_rank = "ありません、あなたは最強だから"
-      @score_difference = "0"
+      @score_difference = 0
+      @message = Message.find(11).content
+      @messenger = Message.find(11).messenger
     end
   end
 end

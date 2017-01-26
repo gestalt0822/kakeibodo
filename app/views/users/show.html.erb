@@ -7,11 +7,11 @@
 
   <% if current_user.id == @user.id %>
     <ul class="list_info">
-      <li><%= current_user.name %>さんの総得点・・・<span class="point"><%= @user.total_score.round(2) %>ポイント</span></li>
+      <li><%= current_user.name %>さんの総得点・・・<span class="point"><%= @your_score %>ポイント</span></li>
       <li><%= current_user.name %>さんのランク・・・<span class="point"><%= @ranking %></span></li>
       <% unless @score_difference == 0 %>
       <li>次は<b><%= @next_rank %></b>を目指しましょう！！<span class="point">残り
-        <%= @score_difference.round(2) %>ポイント</span>です！！</li>
+        <%= @score_difference %>ポイント</span>です！！</li>
       <% end %>
     </ul>
     <ul class="list_info wf-mplus1p">
