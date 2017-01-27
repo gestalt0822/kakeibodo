@@ -6,13 +6,40 @@
   </ul>
     <% @users.each.with_index(1) do |user,index| %>
         <div class="col-xs-12">
+          <% if index == 1 %>
+          <div class="gold_user">
+            <% elsif index == 2 %>
+            <div class="silver_user">
+            <% elsif index == 3 %>
+            <div class= "bronze_user">
+            <% else %>
           <div class="each_user">
+          <% end %>
             <ul class="user_detail">
               <li><b><%= user.name %></b>さん</li>
               <!-- <li><span class="email"><%= user.email %></span></li>
               <li><%= link_to '詳細', user_path(user) , class: 'btn btn-default btn-xs btn-primary user_detail'%></li> -->
-              <li>ポイント・・・<span class="point"><%= user.total_score %></span></li>
-              <li>順位　・・・<span class="point"><%= index %>位</span></li>
+              <li>ポイント・・・
+                <% if index == 1 %>
+                  <span class="gold"><%= user.total_score %></span>
+                <% elsif index == 2 %>
+                  <span class="silver"><%= user.total_score %></span>
+                <% elsif index == 3 %>
+                  <span class="bronze"><%= user.total_score %></span>
+                <% else %>
+                  <span class="point"><%= user.total_score %></span>
+                <% end %>
+              <li>順位　・・・
+              <% if index == 1 %>
+                <span class="gold"><%= index %>位</span>
+              <% elsif index == 2 %>
+                <span class="silver"><%= index %>位</span>
+              <% elsif index == 3 %>
+                <span class="bronze"><%= index %>位</span>
+              <% else %>
+                <span class="point"><%= index %>位</span>
+              <% end %>
+              </li>
             </ul>
           </div>
         </div>

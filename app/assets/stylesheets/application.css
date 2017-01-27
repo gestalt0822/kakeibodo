@@ -219,6 +219,26 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
   padding: 0px;
 }
 
+/*1位〜3位*/
+
+.gold{
+  color: #999933;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.silver{
+  color: #a9a4a4;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.bronze{
+  color: #996600;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 /* ユーザー一覧ページ*/
 
 .each_user{
@@ -228,6 +248,44 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
   padding: 10px 0px 10px 10px;
   overflow: hidden;
 }
+
+.gold_user{
+  background-color: #ccd24a;
+  border: 2px solid #999933;
+  margin: 0px 0px 30px 0px;
+  padding: 10px 0px 10px 10px;
+  overflow: hidden;
+  background: #fceabb; /* Old browsers */
+  background: -moz-linear-gradient(top, #fceabb 0%, #fccd4d 50%, #f8b500 61%, #fbdf93 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #fceabb 0%,#fccd4d 50%,#f8b500 61%,#fbdf93 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #fceabb 0%,#fccd4d 50%,#f8b500 61%,#fbdf93 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=0 ); /* IE6-9 */
+}
+
+.silver_user{
+  background-color: #ccd24a;
+  border: 2px solid #C0C0C0;
+  margin: 0px 0px 30px 0px;
+  padding: 10px 0px 10px 10px;
+  overflow: hidden;
+  background: #f2f6f8; /* Old browsers */
+background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 58%, #b5c6d0 67%, #e0eff9 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(top, #f2f6f8 0%,#d8e1e7 58%,#b5c6d0 67%,#e0eff9 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to bottom, #f2f6f8 0%,#d8e1e7 58%,#b5c6d0 67%,#e0eff9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9',GradientType=0 ); /* IE6-9 */}
+
+.bronze_user{
+  background-color: #ccd24a;
+  border: 2px solid #996600;
+  margin: 0px 0px 30px 0px;
+  padding: 10px 0px 10px 10px;
+  overflow: hidden;
+  background: #f3e2c7; /* Old browsers */
+  background: -moz-linear-gradient(top, #f3e2c7 0%, #c19e67 50%, #b68d4c 68%, #e9d4b3 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f3e2c7 0%,#c19e67 50%,#b68d4c 68%,#e9d4b3 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f3e2c7 0%,#c19e67 50%,#b68d4c 68%,#e9d4b3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#e9d4b3',GradientType=0 ); /* IE6-9 */
+  }
 
 ul.user_detail{
   /*width: 160px;
@@ -284,6 +342,8 @@ ul.user_detail{
   font-size:11px;
   font-style:oblique;
 }
+
+
 
 /*戻るボタンなどの文字リンク*/
 
