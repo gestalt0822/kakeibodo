@@ -1,9 +1,11 @@
 <div class="main_contents">
   <h2>ユーザーランキング</h2>
   <ul class="list_info">
+    <% if current_user.public == true %>
     <li>あなたは<%= User.all.count %>人中、<span class="point"><%= @your_rank %>位</span>です！</li>
     <% unless @your_rank == 1 %>
       <li><%= @next_rank %>位との差は<span class="point"><%= @difference %>ポイント</span>です!</li>
+    <% end %>
     <% end %>
   </ul>
     <% @users.each.with_index(1) do |user,index| %>
@@ -52,8 +54,6 @@
               <div class="medal"><%= image_tag '0171_bronze.png' %></div>
             <% else %>
             <% end %>
-
-
           </div>
         </div>
     <% end %>
