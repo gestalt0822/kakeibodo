@@ -2,7 +2,9 @@
   <h2>ユーザーランキング</h2>
   <ul class="list_info">
     <li>あなたは<%= User.all.count %>人中、<span class="point"><%= @your_rank %>位</span>です！</li>
-    <li><%= @next_rank %>位との差は<span class="point"><%= @difference %>ポイント</span>です!</li>
+    <% unless @your_rank == 1 %>
+      <li><%= @next_rank %>位との差は<span class="point"><%= @difference %>ポイント</span>です!</li>
+    <% end %>
   </ul>
     <% @users.each.with_index(1) do |user,index| %>
         <div class="col-xs-12">

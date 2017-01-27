@@ -249,6 +249,8 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
   overflow: hidden;
 }
 
+/* ユーザー一ランキング*/
+
 .gold_user{
   background-color: #ccd24a;
   border: 2px solid #999933;
