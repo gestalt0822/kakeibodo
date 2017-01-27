@@ -1,17 +1,21 @@
 <div class="main_contents">
-  <h2>ユーザー一覧</h2>
-    <% @users.each do |user| %>
-      <% unless user.id == current_user.id %>
+  <h2>ユーザーランキング</h2>
+  <ul class="list_info">
+    <li>あなたは<%= User.all.count %>人中、<span class="point"><%= @your_rank %>位</span>です！</li>
+    <li><%= @next_rank %>位との差は<%= @difference %>ポイントです!</li>
+  </ul>
+    <% @users.each.with_index(1) do |user,index| %>
         <div class="col-xs-12">
           <div class="each_user">
             <ul class="user_detail">
               <li><b><%= user.name %></b>さん</li>
-              <li><span class="email"><%= user.email %></span></li>
-              <li><%= link_to '詳細', user_path(user) , class: 'btn btn-default btn-xs btn-primary user_detail'%></li>
+              <!-- <li><span class="email"><%= user.email %></span></li>
+              <li><%= link_to '詳細', user_path(user) , class: 'btn btn-default btn-xs btn-primary user_detail'%></li> -->
+              <li>ポイント・・・<span class="point"><%= user.total_score %></span></li>
+              <li>順位　・・・<span class="point"><%= index %>位</span></li>
             </ul>
           </div>
         </div>
-      <% end %>
     <% end %>
     <div class="links">
       <%= link_to '戻る', :back %>

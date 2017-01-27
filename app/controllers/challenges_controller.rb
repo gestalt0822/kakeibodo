@@ -55,6 +55,8 @@ class ChallengesController < ApplicationController
         @total_score += @bonus_point
       end
       @challenge.update(achieve: true, score:@total_score)
+      @user_tatal_score = current_user.challenges.sum(:score)
+      current_user.update(total_score:@user_tatal_score)
     else
       current_user.update(continue:0)
       @challenge.update(score:0)

@@ -76,7 +76,7 @@ a{
   }
 
 #main_title{
-  padding: 15px 0px 0px 0px;
+  padding: 7px 0px 0px 0px;
   margin: 0px ;
   float: left;
   height: 115px;
@@ -230,13 +230,17 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
 }
 
 ul.user_detail{
-  width: 160px;
-  height: 90px;
+  /*width: 160px;
+  height: 90px;*/
   list-style-type: none;
   margin:0px 0px 0px 15px;
   padding: 0px;
   float: left;
   overflow: hidden;
+}
+
+.user_detail li{
+  padding-top:5px;
 }
 
 .email{

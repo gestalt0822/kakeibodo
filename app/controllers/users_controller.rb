@@ -1,6 +1,14 @@
 class UsersController < ApplicationController
   def index
-    @users = User.all
+    @users = User.all.order(total_score: :desc)
+    @users_rank = @users.pluck(:id)
+    @your_rank = @users_rank.index(current_user.id)
+    next_rank = @your_rank -= 1#次の順位の配列内で何番目か取得
+    @your_rank += 2
+    next_rank_id = @users_rank[next_rank]#次の順位の人のidを取得
+    next_user = User.find(next_rank_id)#次の順位の人のレコードを取得
+    @next_rank = next_rank + 1
+    @difference = next_user.total_score - current_user.total_score
   end
 
 #usersテーブルのtotal_scoresからむは不要？？
