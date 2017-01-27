@@ -2,7 +2,7 @@
   <h2>ユーザーランキング</h2>
   <ul class="list_info">
     <li>あなたは<%= User.all.count %>人中、<span class="point"><%= @your_rank %>位</span>です！</li>
-    <li><%= @next_rank %>位との差は<%= @difference %>ポイントです!</li>
+    <li><%= @next_rank %>位との差は<span class="point"><%= @difference %>ポイント</span>です!</li>
   </ul>
     <% @users.each.with_index(1) do |user,index| %>
         <div class="col-xs-12">
@@ -41,6 +41,17 @@
               <% end %>
               </li>
             </ul>
+
+            <% if index == 1 %>
+              <div class="medal"><%= image_tag '0173_gold.png' %></div>
+            <% elsif index == 2 %>
+              <div class="medal"><%= image_tag '0172_silver.png' %></div>
+            <% elsif index == 3 %>
+              <div class="medal"><%= image_tag '0171_bronze.png' %></div>
+            <% else %>
+            <% end %>
+
+
           </div>
         </div>
     <% end %>
