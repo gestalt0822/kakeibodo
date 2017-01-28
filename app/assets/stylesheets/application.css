@@ -221,22 +221,28 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
 
 /*1位〜3位*/
 
-.gold{
+.rank1{
   color: #999933;
   font-size: 20px;
   font-weight: bold;
 }
 
-.silver{
-  color: #a9a4a4;
+.rank2{
+  color: #948f8f;
   font-size: 20px;
   font-weight: bold;
 }
 
-.bronze{
+.rank3{
   color: #996600;
   font-size: 20px;
   font-weight: bold;
+}
+
+.rank{
+  font-size: 15px;
+  font-weight: bold;
+
 }
 
 /* ユーザー一覧ページ*/
@@ -306,12 +312,13 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
 ul.user_detail{
   width: 130px;
   list-style-type: none;
-  padding: 0px;
+  padding: 3px 0px 0px 0px;
   margin: 10px auto;
   z-index: 1000;
 }
 
 .user_detail li{
+  padding-bottom: 5px;
 }
 
 .email{
