@@ -242,10 +242,7 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
 .rank{
   font-size: 15px;
   font-weight: bold;
-
 }
-
-/* ユーザー一覧ページ*/
 
 .each_user{
   background-color: #fff;
@@ -300,7 +297,6 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
   margin: 10px auto;
   padding: 0px;
 }
-
 
 .user_image{
   margin: 10px auto;
@@ -363,6 +359,7 @@ ul.user_detail{
   font-style:oblique;
 }
 
+/*チャレンジのフォーム(bootstrapをベース)*/
 
 .challenge_form{
   /*height: 34px;
