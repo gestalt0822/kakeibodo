@@ -51,6 +51,11 @@
                   <span class="point"><%= index %>位</span>
                 <% end %>
                 </li>
+                <li>
+                  <% if user.continue > 1 %>
+                    <span class="red"><%= user.continue %>回連続</span>目標達成！
+                  <% end %>
+                </li>
               </ul>
           </div>
 
@@ -63,7 +68,6 @@
               <%= image_tag '0171_bronze.png', size: '130x130', class:'img-responsive medal'  %>
             <% else %>
             <% end %>
-
           </div>
       </div>
     </div>
