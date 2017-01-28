@@ -6,58 +6,66 @@
       <li><%= @next_rank %>位との差は<span class="point"><%= @difference %>ポイント</span>です!</li>
     <% end %>
   </ul>
-    <% @users.each.with_index(1) do |user,index| %>
-        <div class="col-xs-12">
-          <% if index == 1 %>
-          <div class="gold_user">
-            <% elsif index == 2 %>
-            <div class="silver_user">
-            <% elsif index == 3 %>
-            <div class= "bronze_user">
+  <% @users.each.with_index(1) do |user,index| %>
+    <div class="col-xs-12">
+      <% if index == 1 %>
+        <div class="gold_user row">
+      <% elsif index == 2 %>
+        <div class="silver_user row">
+      <% elsif index == 3 %>
+        <div class= "bronze_user row">
+      <% else %>
+        <div class="each_user row">
+      <% end %>
+          <div class="col-xs-4">
+            <% if user.avatar.present? %>
+              <%= image_tag user.avatar, size: '130x130', class:'img-responsive user_image' %>
             <% else %>
-          <div class="each_user">
-          <% end %>
-            <ul class="user_detail">
-              <li><b><%= user.name %></b>さん</li>
-              <!-- <li><span class="email"><%= user.email %></span></li>
-              <li><%= link_to '詳細', user_path(user) , class: 'btn btn-default btn-xs btn-primary user_detail'%></li> -->
-              <li>ポイント・・・
-                <% if index == 1 %>
-                  <span class="gold"><%= user.total_score %></span>
-                <% elsif index == 2 %>
-                  <span class="silver"><%= user.total_score %></span>
-                <% elsif index == 3 %>
-                  <span class="bronze"><%= user.total_score %></span>
-                <% else %>
-                  <span class="point"><%= user.total_score %></span>
-                <% end %>
-              <li>順位　・・・
-              <% if index == 1 %>
-                <span class="gold"><%= index %>位</span>
-              <% elsif index == 2 %>
-                <span class="silver"><%= index %>位</span>
-              <% elsif index == 3 %>
-                <span class="bronze"><%= index %>位</span>
-              <% else %>
-                <span class="point"><%= index %>位</span>
-              <% end %>
-              </li>
-            </ul>
-
-            <% if index == 1 %>
-              <div class="medal"><%= image_tag '0173_gold.png' %></div>
-            <% elsif index == 2 %>
-              <div class="medal"><%= image_tag '0172_silver.png' %></div>
-            <% elsif index == 3 %>
-              <div class="medal"><%= image_tag '0171_bronze.png' %></div>
-            <% else %>
+              <%= image_tag 'no_image.png', size: '130x130', class:'img-responsive user_image' %>
             <% end %>
-
-
           </div>
-        </div>
-    <% end %>
-    <div class="links">
-      <%= link_to '戻る', :back %>
+
+          <div class="col-xs-4">
+              <ul class="user_detail wf-roundedmplus1c">
+                <li><b><%= user.name %></b>さん</li>
+                <li>
+                  <% if index == 1 %>
+                    <span class="gold"><%= user.total_score %></span>
+                  <% elsif index == 2 %>
+                    <span class="silver"><%= user.total_score %></span>
+                  <% elsif index == 3 %>
+                    <span class="bronze"><%= user.total_score %></span>
+                  <% else %>
+                    <span class="point"><%= user.total_score %></span>
+                  <% end %>ポイント
+                <li>
+                <% if index == 1 %>
+                  <span class="gold"><%= index %>位</span>
+                <% elsif index == 2 %>
+                  <span class="silver"><%= index %>位</span>
+                <% elsif index == 3 %>
+                  <span class="bronze"><%= index %>位</span>
+                <% else %>
+                  <span class="point"><%= index %>位</span>
+                <% end %>
+                </li>
+              </ul>
+          </div>
+
+          <div class="col-xs-4">
+            <% if index == 1 %>
+              <%= image_tag '0173_gold.png', size: '130x130', class:'img-responsive medal'  %>
+            <% elsif index == 2 %>
+              <%= image_tag '0172_silver.png', size: '130x130', class:'img-responsive medal'  %>
+            <% elsif index == 3 %>
+              <%= image_tag '0171_bronze.png', size: '130x130', class:'img-responsive medal'  %>
+            <% else %>
+             <% end %>
+          </div>
+      </div>
     </div>
+  <% end %>
+  <div class="links">
+    <%= link_to '戻る', :back %>
+  </div>
 </div>
