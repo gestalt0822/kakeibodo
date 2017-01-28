@@ -223,7 +223,7 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
 
 .gold{
   color: #999933;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: bold;
 }
 
@@ -244,19 +244,15 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
 .each_user{
   background-color: #fff;
   border: 1px solid #ccc;
-  margin: 0px 0px 30px 0px;
-  padding: 10px 0px 10px 10px;
-  overflow: hidden;
+  margin-bottom:20px;
 }
 
 /* ユーザー一ランキング*/
 
 .gold_user{
   background-color: #ccd24a;
+  margin-bottom:20px;
   border: 2px solid #999933;
-  margin: 0px 0px 30px 0px;
-  padding: 10px 0px 10px 10px;
-  overflow: hidden;
   box-shadow:2px 2px 6px 2px #c7c3b1;
   background: #fceabb; /* Old browsers */
   background: -moz-linear-gradient(top, #fceabb 0%, #fccd4d 50%, #f8b500 61%, #fbdf93 100%); /* FF3.6-15 */
@@ -267,10 +263,8 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
 
 .silver_user{
   background-color: #ccd24a;
+  margin-bottom:20px;
   border: 2px solid #b9b7be;
-  margin: 0px 0px 30px 0px;
-  padding: 10px 0px 10px 10px;
-  overflow: hidden;
   box-shadow:2px 2px 6px 2px #c7c3b1;
   background: #f2f6f8; /* Old browsers */
 background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 58%, #b5c6d0 67%, #e0eff9 100%); /* FF3.6-15 */
@@ -280,10 +274,8 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
 
 .bronze_user{
   background-color: #ccd24a;
+  margin-bottom:20px;
   border: 2px solid #996600;
-  margin: 0px 0px 30px 0px;
-  padding: 10px 0px 10px 10px;
-  overflow: hidden;
   box-shadow:2px 2px 6px 2px #c7c3b1;
   background: #f3e2c7; /* Old browsers */
   background: -moz-linear-gradient(top, #f3e2c7 0%, #c19e67 50%, #b68d4c 68%, #e9d4b3 100%); /* FF3.6-15 */
@@ -292,27 +284,33 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', end
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#e9d4b3',GradientType=0 ); /* IE6-9 */
   }
 
-  .medal{
-    float: right;
-    padding-right: 20px;
-  }
+.medal{
+  margin: 10px auto;
+  padding: 0px;
+}
 
-  /*.medal img{
-    box-shadow:2px 2px 6px 2px #c7c3b1;
-  }*/
+.medal img{
+  margin: 0px;
+  padding: 0px;
+}
+
+
+.user_image{
+  margin: 10px auto;
+  padding: 0px;
+  border-radius: 75px;
+  z-index: 1;
+}
 
 ul.user_detail{
-  /*width: 160px;
-  height: 90px;*/
+  width: 130px;
   list-style-type: none;
-  margin:0px 0px 0px 15px;
   padding: 0px;
-  float: left;
-  overflow: hidden;
+  margin: 10px auto;
+  z-index: 1000;
 }
 
 .user_detail li{
-  padding-top:5px;
 }
 
 .email{

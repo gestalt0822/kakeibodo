@@ -41,6 +41,12 @@
       <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
     </div>
 
+    <div class="form-group">
+      <%= image_tag current_user.avatar, size: '100x100', class: 'avatar' %>
+      <%= f.file_field :avatar %>
+      <%= f.hidden_field :avatar_cache %>
+    </div>
+
     <div class="actions">
       <%= f.submit "更新", class: "btn btn-info btn-block" %>
     </div>
