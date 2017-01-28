@@ -252,45 +252,46 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
 .gold_user{
   background-color: #ccd24a;
   margin-bottom:20px;
-  border: 2px solid #999933;
+  border: 2px solid #daa326;
   box-shadow:2px 2px 6px 2px #c7c3b1;
-  background: #fceabb; /* Old browsers */
-  background: -moz-linear-gradient(top, #fceabb 0%, #fccd4d 50%, #f8b500 61%, #fbdf93 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #fceabb 0%,#fccd4d 50%,#f8b500 61%,#fbdf93 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #fceabb 0%,#fccd4d 50%,#f8b500 61%,#fbdf93 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fceabb', endColorstr='#fbdf93',GradientType=0 ); /* IE6-9 */
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#feefb0+1,ffed7f+3,ffea3a+53,eebe07+65,ffed7f+100 */
+  background: #feefb0; /* Old browsers */
+  background: -moz-linear-gradient(top, #feefb0 1%, #ffed7f 3%, #ffea3a 53%, #eebe07 65%, #ffed7f 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #feefb0 1%,#ffed7f 3%,#ffea3a 53%,#eebe07 65%,#ffed7f 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #feefb0 1%,#ffed7f 3%,#ffea3a 53%,#eebe07 65%,#ffed7f 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#feefb0', endColorstr='#ffed7f',GradientType=0 ); /* IE6-9 */
 }
 
 .silver_user{
   background-color: #ccd24a;
   margin-bottom:20px;
-  border: 2px solid #b9b7be;
+  border: 2px solid #aaabab;
   box-shadow:2px 2px 6px 2px #c7c3b1;
-  background: #f2f6f8; /* Old browsers */
-background: -moz-linear-gradient(top, #f2f6f8 0%, #d8e1e7 58%, #b5c6d0 67%, #e0eff9 100%); /* FF3.6-15 */
-background: -webkit-linear-gradient(top, #f2f6f8 0%,#d8e1e7 58%,#b5c6d0 67%,#e0eff9 100%); /* Chrome10-25,Safari5.1-6 */
-background: linear-gradient(to bottom, #f2f6f8 0%,#d8e1e7 58%,#b5c6d0 67%,#e0eff9 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f6f8', endColorstr='#e0eff9',GradientType=0 ); /* IE6-9 */}
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#fcfcfc+1,dedfdf+11,c9caca+53,b7b8b8+65,eeefef+100 */
+  background: #fcfcfc; /* Old browsers */
+  background: -moz-linear-gradient(top, #fcfcfc 1%, #dedfdf 11%, #c9caca 53%, #b7b8b8 65%, #eeefef 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #fcfcfc 1%,#dedfdf 11%,#c9caca 53%,#b7b8b8 65%,#eeefef 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #fcfcfc 1%,#dedfdf 11%,#c9caca 53%,#b7b8b8 65%,#eeefef 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfcfc', endColorstr='#eeefef',GradientType=0 ); /* IE6-9 */
+ ); /* IE6-9 */}
 
 .bronze_user{
   background-color: #ccd24a;
   margin-bottom:20px;
-  border: 2px solid #996600;
+  border: 2px solid #dc7b1b;
   box-shadow:2px 2px 6px 2px #c7c3b1;
-  background: #f3e2c7; /* Old browsers */
-  background: -moz-linear-gradient(top, #f3e2c7 0%, #c19e67 50%, #b68d4c 68%, #e9d4b3 100%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #f3e2c7 0%,#c19e67 50%,#b68d4c 68%,#e9d4b3 100%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #f3e2c7 0%,#c19e67 50%,#b68d4c 68%,#e9d4b3 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3e2c7', endColorstr='#e9d4b3',GradientType=0 ); /* IE6-9 */
-  }
+
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f9f1de+0,f8dfa9+7,f4ba66+53,dc7b1b+65,f0ac49+100 */
+  background: #f9f1de; /* Old browsers */
+  background: -moz-linear-gradient(top, #f9f1de 0%, #f8dfa9 7%, #f4ba66 53%, #dc7b1b 65%, #f0ac49 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #f9f1de 0%,#f8dfa9 7%,#f4ba66 53%,#dc7b1b 65%,#f0ac49 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #f9f1de 0%,#f8dfa9 7%,#f4ba66 53%,#dc7b1b 65%,#f0ac49 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9f1de', endColorstr='#f0ac49',GradientType=0 ); /* IE6-9 */
+}
 
 .medal{
   margin: 10px auto;
-  padding: 0px;
-}
-
-.medal img{
-  margin: 0px;
   padding: 0px;
 }
 
