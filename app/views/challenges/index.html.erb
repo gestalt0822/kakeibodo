@@ -1,5 +1,14 @@
 <div class="main_contents">
   <h2>チャレンジ</h2>
+  <span id="show_challenge">チャレンジとは？</span>
+  <div id="what_challenge">
+  <span class="point"><b>「今月は10万円でやりくりしよう」</b></span>などと、期間と目標金額を決めて達成しようとすることを<span class="point"><b>「チャレンジ」</b></span>と言います。
+  下の「新規チャレンジ」のフォームから期間（
+  月末まで行うなら、「最終日」を月末の日付にする)
+  と、目標額を入力して「決定」ボタンをクリックして下さい。<br />
+  <span class="sub_info">＊一度に複数のチャレンジを行うことは出来ません。チャレンジ実施中は「新規チャレンジ」のフォームが表示されません</span>
+    <span id="close_challenge">閉じる</span>
+  </div>
   <% unless Challenge.find_by(status:1, user_id:current_user.id) %>
     <h3>新規チャレンジ</h3>
     <%= render partial: 'form' %>
@@ -55,7 +64,7 @@
           <td><%= challenge.deadline.strftime("%m月%d日")%></td>
           <td><%= challenge.achieve %></td>
           <td><%= challenge.score %>点</td>
-          <td><%= link_to '詳細', challenge_path(challenge), class:'btn btn-success btn-xs btn-primary' %></td>
+          <td><%= link_to '詳細', challenge_path(challenge), class:'btn btn-warning btn-xs btn-primary' %></td>
         </tr>
       <% end %>
     <% end %>

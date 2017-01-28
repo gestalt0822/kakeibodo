@@ -14,3 +14,14 @@
 //= require jquery_ujs
 //= require twitter/bootstrap
 //= require_tree .
+
+
+$(document).ready(function(){
+	$("#show_challenge").on("click",function(){
+    console.log();
+		$("#what_challenge").slideToggle();
+		});
+  $("#close_challenge").click(function(){
+    $("#what_challenge").hide();
+  });
+});
