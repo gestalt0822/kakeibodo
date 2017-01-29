@@ -59,4 +59,12 @@ module ApplicationHelper
       return image_tag('no_image.png', size: '130x130', class:'img-responsive user_image')
     end
   end
+
+  def user_image_devise(user)
+    if user.avatar.present?
+      return image_tag(user.avatar, size: '130x130', class:'img-responsive user_image_devise')
+    else
+      return image_tag('no_image.png', size: '130x130', class:'img-responsive user_image_devise')
+    end
+  end
 end

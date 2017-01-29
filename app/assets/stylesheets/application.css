@@ -50,8 +50,13 @@ h2{
 
 h3{
   font-family: "Rounded Mplus 1c";
-  padding: 0px 0px 10px 0px;
+  padding: 0px 0px 5px 0px;
  }
+
+ h4{
+   font-family: "Rounded Mplus 1c";
+   padding: 0px 0px 5px 0px;
+  }
 
 a{
   color: #59493f;
@@ -303,6 +308,10 @@ form_forの外にあるのにもかかわらず強引に投稿ボタンより上
   padding: 0px;
   border-radius: 75px;
   z-index: 1;
+}
+
+.user_image_devise{
+  border-radius: 75px;
 }
 
 ul.user_detail{

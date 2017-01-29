@@ -1,5 +1,5 @@
 <div class="main_contents">
-  <h2><%= current_user.name %>さんのユーザー情報を編集</h2>
+  <h2>ユーザー情報を編集</h2>
 
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
     <%= devise_error_messages! %>
@@ -15,7 +15,8 @@
     </div>
 
     <div class="form-group">
-      <label><%= f.check_box :public, {class: 'chk'}, 'true', 'false' %>ランキングに参加？</label>
+      <label><%= f.check_box :public, {class: 'chk'}, 'true', 'false' %>ランキングに参加</label><br />
+      <i class="sub_info">参加すると<%= link_to '「ランキング」', users_path %>ページに自分の得点と順位が表示されます。</i>
     </div>
 
     <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
@@ -23,38 +24,40 @@
     <% end %>
 
     <div class="form-group">
-      <%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-      <%= f.password_field :password, autocomplete: "off", class: "form-control"  %>
-      <% if @minimum_password_length %>
-        <br />
-        <em><%= @minimum_password_length %> characters minimum</em>
-      <% end %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :password_confirmation %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control"  %>
-    </div>
-
-    <div class="form-group">
-      <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-      <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
-    </div>
-
-    <div class="form-group">
-      <%= image_tag current_user.avatar, size: '100x100', class: 'avatar' %>
+      <%= f.label :ユーザー画像 %><br />
+      <%= user_image_devise(current_user) %>
       <%= f.file_field :avatar %>
       <%= f.hidden_field :avatar_cache %>
     </div>
 
+    <div class="form-group">
+      <%= f.label :パスワード%><i class="sub_info">ユーザー情報を編集する場合はパスワードを入力して下さい</i><br />
+      <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
+    </div>
+
+    <h4>パスワードの変更</h4>
+
+    <div class="form-group">
+      <%= f.label :新パスワード %><br />
+      <%= f.password_field :password, autocomplete: "off", class: "form-control"  %>
+      <i class="sub_info">
+        ＊最低<% if @minimum_password_length %><%= @minimum_password_length %>文字以上<% end %>
+      </i>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :新パスワード（確認） %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control"  %>
+    </div><br />
+
     <div class="actions">
-      <%= f.submit "更新", class: "btn btn-success btn-block" %>
+      <%= f.submit "更新", class: "btn btn-success btn-block btn-margin" %>
     </div>
   <% end %>
 
   <h3>アカウントを削除</h3>
 
-  <p><%= button_to "削除", registration_path(resource_name), data: { confirm: "A削除してよろしいですか？" }, method: :delete, class: "btn btn-danger btn-block" %></p>
+  <p><%= button_to "削除", registration_path(resource_name), data: { confirm: "A削除してよろしいですか？" }, method: :delete, class: "btn btn-danger btn-block btn-margin" %></p>
 
   <div class="links">
     <%= link_to "Back", :back %>

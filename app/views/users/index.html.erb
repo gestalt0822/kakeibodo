@@ -1,11 +1,15 @@
 <div class="main_contents">
   <h2>ユーザーランキング</h2>
+  <!--<span>これはなんのランキング？</span>-->
   <ul class="list_info">
     <% if current_user.public == true %>
-      <li>あなたは<%= User.all.count %>人中、<span class="point"><%= @your_rank %>位</span>です！</li>
+      <li>あなたは<%= @users.count %>人中、<span class="point"><%= @your_rank %>位</span>です！</li>
       <% unless @your_rank == 1 %>
         <li><%= @next_rank %>位との差は<span class="point"><%= @difference %>ポイント</span>です!</li>
       <% end %>
+      <li><i class="sub_info">＊自分の順位とポイントを非表示にしたい場合、<%= link_to 'ユーザー情報編集', edit_user_registration_path %>で「ランキングに参加」にチェックを外して下さい。</i></li>
+    <% else %>
+     <li><i class="sub_info">＊<%= link_to 'ユーザー情報編集', edit_user_registration_path %>で「ランキングに参加」にチェックを入れると、あなたのポイントと順位も表示されます。</i><li>
     <% end %>
   </ul>
 
