@@ -6,7 +6,7 @@ Rails.application.routes.draw do
       patch :unlist
     end
     collection do
-      get 'index_other'
+      get :index_other
     end
     collection do
       get 'get_sorts'
