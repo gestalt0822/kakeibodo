@@ -14,6 +14,15 @@ class BookingsController < ApplicationController
   end
   #http://www.namaraii.com/rubytips/datetime/#section-7
 
+  def index_other
+    @booking = Booking.new
+    @bookings = Booking.where(user_id: current_user.id).order(date: :desc)
+    @bookings_now = Booking.where(user_id: current_user.id, date: Time.now.beginning_of_month..Time.now.end_of_month).order(date: :desc)
+    @bookings_then = current_user.bookings.where.not(date: Time.now.beginning_of_month..Time.now.end_of_month).order(date: :desc)
+    this_month = Date.today.month
+    this_year = Date.today.year
+  end
+
   def new
     @booking = Booking.new
   end

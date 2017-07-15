@@ -1,0 +1,39 @@
+<div class="main_contents">
+  <%= render partial: 'form' %>
+
+<div class="bookings_contents">
+  <h2>今月使ったお金</h2>
+  <table class="table table-bordered design-table">
+    <tr class="success">
+      <th>金額</th><th>項目</th><th>細目</th><th>詳細</th><th>日時</th><th></th>
+    </tr>
+    <% if @bookings_now.count == 0 %>
+      <tr><td colspan="6"><p class="text_center">なし</p></td></tr>
+    <% end %>
+    <% @bookings_now.each do |booking| %>
+      <% unless booking.unlist == true %>
+        <tr>
+          <td><%= booking.amount %>円</td>
+          <td>
+            <% unless booking.category_id.nil? %>
+              <%= booking.category.name %></td>
+            <% end %>
+          <td>
+            <% unless booking.sort_id.nil? %>
+              <%= booking.sort.name %>
+            <% else %>
+            なし
+            <% end %>
+          </td>
+          <td><%= booking.detail %></td>
+          <td><%= booking.date.strftime("%m月%d日") %></td>
+          <td>
+            <%= link_to '編集', edit_booking_path(booking), class: 'btn btn-warning btn-xs btn-primary' %>
+            <%= link_to '削除', unlist_booking_path(booking), method: :patch, class: 'btn btn-default btn-xs btn-danger' %>
+          </td>
+        </tr>
+       <% end %>
+     <% end %>
+  </table>
+</div>
+</div>
